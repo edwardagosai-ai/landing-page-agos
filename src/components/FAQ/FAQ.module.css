@@ -1,6 +1,7 @@
 .faq {
   background: var(--color-ivory-100);
   padding: var(--space-2xl) 0;
+  --bleed-from: rgba(6, 13, 26, 0.22);
 }
 
 .wrap {

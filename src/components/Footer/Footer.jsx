@@ -31,8 +31,8 @@ export default function Footer() {
             <div>
               <div className={styles.colTitle}>Contact</div>
               <div className={styles.colLinks}>
-                <a href="mailto:hello@agossolutions.com">hello@agossolutions.com</a>
-                <a href="#contact">Book a Consultation</a>
+                <a href="mailto:info@agos.solutions">info@agos.solutions</a>
+                <a href="#contact">Start the Conversation</a>
               </div>
             </div>
           </div>

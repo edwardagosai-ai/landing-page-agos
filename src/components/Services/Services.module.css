@@ -1,6 +1,7 @@
 .services {
   background: var(--color-navy-900);
   padding: var(--space-2xl) 0;
+  --bleed-from: rgba(247, 243, 236, 0.16);
 }
 
 .head {

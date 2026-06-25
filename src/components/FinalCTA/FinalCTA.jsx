@@ -25,7 +25,7 @@ export default function FinalCTA() {
   };
 
   return (
-    <section id="contact" className={styles.cta}>
+    <section id="contact" className={`${styles.cta} section-bleed`}>
       <WaveBackground tone="dark" />
       <div className={`container ${styles.grid} reveal`} ref={ref}>
         <div>
@@ -75,7 +75,7 @@ export default function FinalCTA() {
           </div>
 
           <button type="submit" className={styles.submit} disabled={status === 'submitting'}>
-            {status === 'submitting' ? 'Sending…' : 'Book a Free Consultation'}
+            {status === 'submitting' ? 'Sending…' : 'Start the Conversation'}
           </button>
 
           {status === 'submitted' && (

@@ -47,7 +47,7 @@ export default function Services() {
   const gridRef = useReveal();
 
   return (
-    <section id="services" className={styles.services}>
+    <section id="services" className={`${styles.services} section-bleed`}>
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
           <p className="eyebrow">What We Build</p>

@@ -3,6 +3,7 @@
   background: linear-gradient(180deg, var(--color-navy-800) 0%, var(--color-navy-950) 100%);
   padding: var(--space-2xl) 0;
   overflow: hidden;
+  --bleed-from: rgba(247, 243, 236, 0.16);
 }
 
 .grid {

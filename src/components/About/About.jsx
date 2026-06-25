@@ -11,7 +11,7 @@ export default function About() {
   const ref = useReveal();
 
   return (
-    <section id="about" className={styles.about}>
+    <section id="about" className={`${styles.about} section-bleed`}>
       <div className="container">
         <div ref={ref} className={`${styles.grid} reveal`}>
           <div>

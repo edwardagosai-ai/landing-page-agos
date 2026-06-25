@@ -17,7 +17,7 @@ export default function Hero() {
         </p>
         <div className={styles.actions}>
           <a href="#contact" className={styles.primaryCta}>
-            Book a Free Consultation
+            Start the Conversation
           </a>
           <a href="#process" className={styles.secondaryCta}>
             See how it works ↓

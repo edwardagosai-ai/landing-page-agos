@@ -25,7 +25,7 @@ export default function Process() {
   const timelineRef = useReveal();
 
   return (
-    <section id="process" className={styles.process}>
+    <section id="process" className={`${styles.process} section-bleed`}>
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
           <p className="eyebrow">How We Work</p>

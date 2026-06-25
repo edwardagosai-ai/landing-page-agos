@@ -34,7 +34,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section id="faq" className={styles.faq}>
+    <section id="faq" className={`${styles.faq} section-bleed`}>
       <div className="container">
         <div ref={ref} className={`${styles.wrap} reveal`}>
           <div>

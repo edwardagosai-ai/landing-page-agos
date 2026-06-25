@@ -85,10 +85,29 @@ ul {
 }
 
 .container {
+  position: relative;
+  z-index: 1;
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
   padding: 0 var(--space-lg);
+}
+
+.section-bleed {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-bleed::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, var(--bleed-from, transparent), transparent);
 }
 
 @media (max-width: 720px) {

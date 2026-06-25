@@ -40,7 +40,7 @@ export default function Nav() {
             </a>
           ))}
           <a href="#contact" className={styles.cta}>
-            Book a Consultation
+            Start the Conversation
           </a>
         </div>
 
@@ -62,7 +62,7 @@ export default function Nav() {
             </a>
           ))}
           <a href="#contact" className={styles.cta} onClick={closeMobile}>
-            Book a Consultation
+            Start the Conversation
           </a>
         </div>
       )}
