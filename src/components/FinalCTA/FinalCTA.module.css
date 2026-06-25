@@ -1,0 +1,111 @@
+.cta {
+  position: relative;
+  background: linear-gradient(180deg, var(--color-navy-800) 0%, var(--color-navy-950) 100%);
+  padding: var(--space-2xl) 0;
+  overflow: hidden;
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.heading {
+  font-size: clamp(2.1rem, 3.6vw, 2.9rem);
+  color: var(--color-ivory-100);
+  margin-top: var(--space-sm);
+  max-width: 460px;
+}
+
+.sub {
+  margin-top: var(--space-md);
+  color: rgba(247, 243, 236, 0.68);
+  max-width: 440px;
+  font-size: 1.02rem;
+}
+
+.form {
+  background: var(--color-ivory-100);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-graphite-700);
+}
+
+.field input,
+.field textarea {
+  border: 1px solid var(--color-ivory-200);
+  border-radius: var(--radius-sm);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  background: var(--color-white);
+  color: var(--color-navy-900);
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: 2px solid var(--color-blue-300);
+  outline-offset: 1px;
+}
+
+.submit {
+  margin-top: 0.4rem;
+  background: var(--color-blue-500);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.4rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  transition: background var(--transition-base);
+}
+
+.submit:hover {
+  background: var(--color-blue-400);
+}
+
+.submit:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.status {
+  font-size: 0.88rem;
+  color: var(--color-blue-500);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

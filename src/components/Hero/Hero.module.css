@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(180deg, var(--color-navy-950) 0%, var(--color-navy-900) 60%, var(--color-navy-800) 100%);
+  overflow: hidden;
+  padding-top: 5rem;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.eyebrow {
+  color: var(--color-blue-300);
+}
+
+.headline {
+  color: var(--color-ivory-100);
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  margin-top: var(--space-sm);
+  letter-spacing: -0.01em;
+}
+
+.headline em {
+  font-style: italic;
+  color: var(--color-blue-300);
+}
+
+.subhead {
+  color: rgba(247, 243, 236, 0.75);
+  font-size: 1.15rem;
+  max-width: 540px;
+  margin-top: var(--space-md);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.primaryCta {
+  background: var(--color-blue-500);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.95rem 1.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.primaryCta:hover {
+  background: var(--color-blue-400);
+  transform: translateY(-2px);
+}
+
+.secondaryCta {
+  color: var(--color-ivory-100);
+  font-weight: 500;
+  font-size: 0.98rem;
+  border-bottom: 1px solid rgba(247, 243, 236, 0.35);
+  padding-bottom: 2px;
+  transition: border-color var(--transition-base), color var(--transition-base);
+}
+
+.secondaryCta:hover {
+  border-color: var(--color-blue-300);
+  color: var(--color-blue-300);
+}
+
+.stats {
+  display: flex;
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid rgba(247, 243, 236, 0.14);
+}
+
+.stat dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--color-ivory-100);
+}
+
+.stat dt {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  color: rgba(247, 243, 236, 0.6);
+}
+
+@media (max-width: 720px) {
+  .stats {
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+  }
+}
