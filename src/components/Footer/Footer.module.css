@@ -1,6 +1,6 @@
 .footer {
   background: var(--color-navy-950);
-  padding: var(--space-xl) 0 var(--space-lg);
+  padding: var(--space-md) 0 var(--space-sm);
 }
 
 .top {
@@ -8,7 +8,7 @@
   justify-content: space-between;
   gap: var(--space-xl);
   flex-wrap: wrap;
-  padding-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
   border-bottom: 1px solid rgba(247, 243, 236, 0.1);
 }
 
@@ -82,7 +82,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--space-sm);
-  padding-top: var(--space-md);
+  padding-top: var(--space-xs);
   font-size: 0.82rem;
   color: rgba(247, 243, 236, 0.4);
 }
