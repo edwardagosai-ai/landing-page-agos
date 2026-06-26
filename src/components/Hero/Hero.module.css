@@ -16,8 +16,22 @@
   padding-bottom: var(--space-2xl);
 }
 
+@keyframes hero-pop {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .eyebrow {
   color: var(--color-blue-300);
+  opacity: 0;
+  animation: hero-pop 700ms ease forwards;
+  animation-delay: 100ms;
 }
 
 .headline {
@@ -25,6 +39,9 @@
   font-size: clamp(2.8rem, 6.4vw, 4.9rem);
   margin-top: var(--space-sm);
   letter-spacing: -0.01em;
+  opacity: 0;
+  animation: hero-pop 750ms ease forwards;
+  animation-delay: 220ms;
 }
 
 .headline em {
@@ -37,6 +54,9 @@
   font-size: 1.15rem;
   max-width: 540px;
   margin-top: var(--space-md);
+  opacity: 0;
+  animation: hero-pop 750ms ease forwards;
+  animation-delay: 380ms;
 }
 
 .actions {
@@ -45,6 +65,9 @@
   gap: var(--space-md);
   margin-top: var(--space-lg);
   flex-wrap: wrap;
+  opacity: 0;
+  animation: hero-pop 700ms ease forwards;
+  animation-delay: 520ms;
 }
 
 .primaryCta {
@@ -83,6 +106,9 @@
   margin-top: var(--space-2xl);
   padding-bottom: var(--space-md);
   border-bottom: 1px solid rgba(247, 243, 236, 0.14);
+  opacity: 0;
+  animation: hero-pop 700ms ease forwards;
+  animation-delay: 680ms;
 }
 
 .stat dd {
@@ -103,5 +129,16 @@
   .stats {
     gap: var(--space-lg);
     flex-wrap: wrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .headline,
+  .subhead,
+  .actions,
+  .stats {
+    opacity: 1;
+    animation: none;
   }
 }
