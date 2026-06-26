@@ -1,10 +1,21 @@
 import { useReveal } from '../../hooks/useReveal';
 import AngleDivider from '../AngleDivider/AngleDivider';
+import logoMark from '../../assets/logo-mark.png';
+import {
+  WebIcon,
+  AutomationIcon,
+  SystemsIcon,
+  IntegrationsIcon,
+  SupportIcon,
+} from '../Services/icons';
 import styles from './About.module.css';
 
-const TEAM = [
-  { initials: 'JB', name: 'Joshua Barrios', role: 'Director of Operations' },
-  { initials: 'HB', name: 'Howell Bautista', role: 'CTO' },
+const NODES = [
+  { Icon: WebIcon, label: 'Web app', x: 50, y: 12 },
+  { Icon: AutomationIcon, label: 'Automation', x: 86, y: 38 },
+  { Icon: SupportIcon, label: 'Support tools', x: 72, y: 81 },
+  { Icon: SystemsIcon, label: 'Internal systems', x: 28, y: 81 },
+  { Icon: IntegrationsIcon, label: 'Integrations', x: 14, y: 38 },
 ];
 
 export default function About() {
@@ -34,21 +45,39 @@ export default function About() {
             </p>
           </div>
 
-          <div className={styles.team}>
-            {TEAM.map((member) => (
-              <div key={member.name} className={styles.member}>
-                <div className={styles.rod} />
-                <div className={styles.banner}>
-                  <span className={`${styles.ring} ${styles.ringLeft}`} />
-                  <span className={`${styles.ring} ${styles.ringRight}`} />
-                  <div className={styles.bannerFrame}>
-                    <div className={styles.photoPlaceholder}>{member.initials}</div>
-                    <div className={styles.memberName}>{member.name}</div>
-                    <div className={styles.memberRole}>{member.role}</div>
-                  </div>
-                </div>
+          <div className={styles.diagramWrap}>
+            <div className={styles.diagram}>
+              <svg className={styles.diagramLines} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                {NODES.map((node) => (
+                  <line
+                    key={node.label}
+                    x1="50"
+                    y1="50"
+                    x2={node.x}
+                    y2={node.y}
+                    vectorEffect="non-scaling-stroke"
+                  />
+                ))}
+              </svg>
+
+              <div className={styles.hubNode}>
+                <img src={logoMark} alt="" className={styles.hubLogo} />
               </div>
-            ))}
+
+              {NODES.map(({ Icon, label, x, y }) => (
+                <div
+                  key={label}
+                  className={styles.toolNode}
+                  style={{ left: `${x}%`, top: `${y}%` }}
+                  title={label}
+                >
+                  <Icon />
+                </div>
+              ))}
+            </div>
+            <p className={styles.diagramCaption}>
+              One connected system, instead of five disconnected tools.
+            </p>
           </div>
         </div>
       </div>

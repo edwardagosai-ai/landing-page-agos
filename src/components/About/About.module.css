@@ -24,147 +24,93 @@
   max-width: 480px;
 }
 
-.team {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  gap: var(--space-md);
-  height: 100%;
-}
-
-.member {
-  position: relative;
-  flex: 1;
+.diagramWrap {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 220px;
-  padding-top: 14px;
+  justify-content: center;
+  height: 100%;
   opacity: 0;
   transform: translateY(14px);
-  transition: opacity 650ms ease, transform 650ms ease;
+  transition: opacity 700ms ease, transform 700ms ease;
+  transition-delay: 150ms;
 }
 
-.grid:global(.is-visible) .member {
+.grid:global(.is-visible) .diagramWrap {
   opacity: 1;
   transform: translateY(0);
 }
 
-.grid:global(.is-visible) .member:nth-child(1) { transition-delay: 0ms; }
-.grid:global(.is-visible) .member:nth-child(2) { transition-delay: 150ms; }
-.grid:global(.is-visible) .member:nth-child(3) { transition-delay: 300ms; }
-.grid:global(.is-visible) .member:nth-child(4) { transition-delay: 450ms; }
-
-.rod {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% + 20px);
-  height: 5px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, #d6d9dd 0%, #7a8088 100%);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
-
-.rod::before,
-.rod::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #e4e6e9, #7a8088);
-}
-
-.rod::before {
-  left: -7px;
-}
-
-.rod::after {
-  right: -7px;
-}
-
-.banner {
+.diagram {
   position: relative;
-  margin-top: 9px;
   width: 100%;
-  aspect-ratio: 4 / 5.4;
-  background: linear-gradient(160deg, var(--color-navy-800) 0%, var(--color-navy-900) 100%);
-  border-radius: 2px;
-  padding: 9px 7px;
-  filter: drop-shadow(0 10px 16px rgba(2, 6, 16, 0.35));
-  transition: filter var(--transition-base);
+  max-width: 300px;
+  aspect-ratio: 1;
 }
 
-.member:hover .banner {
-  filter: drop-shadow(0 10px 16px rgba(2, 6, 16, 0.35)) drop-shadow(0 0 16px rgba(30, 91, 255, 0.35));
-}
-
-.ring {
+.diagramLines {
   position: absolute;
-  top: -7px;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  border: 2px solid #8a909a;
-  background: var(--color-ivory-100);
-}
-
-.ringLeft {
-  left: 18%;
-}
-
-.ringRight {
-  right: 18%;
-}
-
-.bannerFrame {
-  position: relative;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid rgba(247, 243, 236, 0.55);
-  padding: 0.6rem 0.4rem 0.5rem;
+  overflow: visible;
 }
 
-.bannerFrame::before {
-  content: '';
+.diagramLines line {
+  stroke: var(--color-blue-300);
+  stroke-width: 1;
+  opacity: 0.45;
+}
+
+.hubNode {
   position: absolute;
-  inset: 4px;
-  border: 1px solid rgba(247, 243, 236, 0.28);
-  pointer-events: none;
-}
-
-.photoPlaceholder {
-  width: 58%;
-  aspect-ratio: 3 / 4;
-  border-radius: 2px;
-  background: rgba(247, 243, 236, 0.08);
-  border: 1px solid rgba(247, 243, 236, 0.3);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: var(--color-navy-900);
+  border: 2px solid var(--color-blue-400);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: rgba(247, 243, 236, 0.6);
+  box-shadow: 0 0 0 8px rgba(30, 91, 255, 0.08), 0 8px 18px rgba(2, 6, 16, 0.25);
+  z-index: 2;
 }
 
-.memberName {
-  margin-top: 0.6rem;
-  font-weight: 700;
-  font-size: 0.92rem;
-  color: var(--color-ivory-100);
-  text-align: center;
+.hubLogo {
+  width: 32px;
+  height: 32px;
 }
 
-.memberRole {
-  font-size: 0.76rem;
-  color: rgba(247, 243, 236, 0.6);
-  margin-top: 0.15rem;
+.toolNode {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 1px solid var(--color-ivory-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-blue-500);
+  box-shadow: 0 4px 10px rgba(10, 22, 40, 0.08);
+  z-index: 1;
+}
+
+.toolNode svg {
+  width: 19px;
+  height: 19px;
+}
+
+.diagramCaption {
+  margin-top: var(--space-md);
+  color: var(--color-graphite-600);
+  font-size: 0.9rem;
   text-align: center;
+  max-width: 260px;
 }
 
 @media (max-width: 860px) {
@@ -172,8 +118,7 @@
     grid-template-columns: 1fr;
   }
 
-  .team {
-    max-width: 360px;
-    margin: 0 auto;
+  .diagramWrap {
+    margin-top: var(--space-lg);
   }
 }
