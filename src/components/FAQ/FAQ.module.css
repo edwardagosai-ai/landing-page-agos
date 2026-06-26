@@ -67,7 +67,7 @@
 }
 
 .answer.open {
-  max-height: 240px;
+  max-height: var(--max-answer-height, 240px);
 }
 
 .answerInner {

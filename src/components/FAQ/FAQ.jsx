@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useReveal } from '../../hooks/useReveal';
 import AngleDivider from '../AngleDivider/AngleDivider';
 import styles from './FAQ.module.css';
@@ -33,6 +33,20 @@ const ITEMS = [
 export default function FAQ() {
   const ref = useReveal();
   const [openIndex, setOpenIndex] = useState(0);
+  const answerRefs = useRef([]);
+  const [maxAnswerHeight, setMaxAnswerHeight] = useState(240);
+
+  useEffect(() => {
+    function measure() {
+      const heights = answerRefs.current.map((el) => el?.offsetHeight || 0);
+      setMaxAnswerHeight(Math.max(...heights, 0) + 4);
+    }
+
+    measure();
+    document.fonts?.ready?.then(measure);
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
 
   return (
     <section id="faq" className={`${styles.faq} section-bleed`}>
@@ -44,7 +58,7 @@ export default function FAQ() {
             <h2 className={styles.heading}>Still deciding? Here's what people usually ask</h2>
           </div>
 
-          <div className={styles.list}>
+          <div className={styles.list} style={{ '--max-answer-height': `${maxAnswerHeight}px` }}>
             {ITEMS.map((item, index) => {
               const isOpen = openIndex === index;
               return (
@@ -59,7 +73,9 @@ export default function FAQ() {
                     <span className={`${styles.indicator} ${isOpen ? styles.open : ''}`}>+</span>
                   </button>
                   <div className={`${styles.answer} ${isOpen ? styles.open : ''}`}>
-                    <p className={styles.answerInner}>{item.a}</p>
+                    <p className={styles.answerInner} ref={(el) => (answerRefs.current[index] = el)}>
+                      {item.a}
+                    </p>
                   </div>
                 </div>
               );
