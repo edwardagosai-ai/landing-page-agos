@@ -55,16 +55,16 @@
 .card::after {
   content: '';
   position: absolute;
-  inset: -50%;
+  inset: 0;
   background: linear-gradient(
     125deg,
-    transparent 46%,
-    rgba(255, 255, 255, 0.14) 50%,
-    transparent 54%
+    transparent 42%,
+    rgba(255, 255, 255, 0.22) 50%,
+    transparent 58%
   );
   background-repeat: no-repeat;
-  background-size: 220% 220%;
-  background-position: calc(var(--mx) - 60%) calc(var(--my) - 60%);
+  background-size: 180% 180%;
+  background-position: var(--mx) var(--my);
   opacity: var(--beam-opacity);
   transition: opacity 200ms ease;
   mix-blend-mode: soft-light;
