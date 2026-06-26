@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 
+// Excludes "1" — it's narrow compared to the other glyphs in this font and
+// makes the digits visibly shuffle left/right as they scramble.
+const WIDE_DIGITS = '023456789';
+
 function scramble(value) {
-  return value.replace(/[0-9]/g, () => Math.floor(Math.random() * 10));
+  return value.replace(/[0-9]/g, () => WIDE_DIGITS[Math.floor(Math.random() * WIDE_DIGITS.length)]);
 }
 
-const TOTAL_TICKS = 16;
+const TOTAL_TICKS = 26;
 
 // Ease-in weighting: early gaps are tiny (fast flicker), later gaps grow
 // (visibly slowing down) right before landing on the real value.
