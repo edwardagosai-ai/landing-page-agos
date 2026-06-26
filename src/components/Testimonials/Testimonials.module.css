@@ -11,10 +11,10 @@
 
 .bgImage {
   position: absolute;
-  top: -15%;
+  top: -35%;
   left: 0;
   right: 0;
-  height: 130%;
+  height: 170%;
   background-size: cover;
   background-position: center;
   will-change: transform;

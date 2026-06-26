@@ -43,9 +43,7 @@ export default function Testimonials() {
 
     function update() {
       const rect = section.getBoundingClientRect();
-      const viewportH = window.innerHeight;
-      const progress = (viewportH - rect.top) / (viewportH + rect.height);
-      const offset = (progress - 0.5) * 80;
+      const offset = rect.top * 0.18;
       bg.style.transform = `translateY(${offset}px)`;
       rafId = null;
     }
