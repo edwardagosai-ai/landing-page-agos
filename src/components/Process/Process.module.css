@@ -38,6 +38,35 @@
   background: var(--color-ivory-200);
 }
 
+.flow {
+  position: absolute;
+  top: 21px;
+  left: 0;
+  width: 90px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-blue-500), transparent);
+  border-radius: 2px;
+  pointer-events: none;
+  animation: flow-x 4.5s ease-in-out infinite;
+}
+
+@keyframes flow-x {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 90px);
+    opacity: 0;
+  }
+}
+
 .step {
   position: relative;
 }
@@ -82,5 +111,31 @@
     width: 1px;
     height: auto;
     right: auto;
+  }
+
+  .flow {
+    top: 0;
+    left: 21px;
+    width: 2px;
+    height: 90px;
+    background: linear-gradient(180deg, transparent, var(--color-blue-500), transparent);
+    animation: flow-y 4.5s ease-in-out infinite;
+  }
+}
+
+@keyframes flow-y {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(100% - 90px);
+    opacity: 0;
   }
 }

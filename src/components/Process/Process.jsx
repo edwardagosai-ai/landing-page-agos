@@ -39,6 +39,7 @@ export default function Process() {
         </div>
 
         <div ref={timelineRef} className={`${styles.timeline} reveal`}>
+          <span className={styles.flow} aria-hidden="true" />
           {STEPS.map((step, index) => (
             <div key={step.title} className={styles.step}>
               <div className={styles.number}>{index + 1}</div>
