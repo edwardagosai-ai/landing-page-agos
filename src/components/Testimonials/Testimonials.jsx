@@ -1,5 +1,7 @@
+import { useEffect, useRef } from 'react';
 import { useReveal } from '../../hooks/useReveal';
 import SectionDivider from '../SectionDivider/SectionDivider';
+import buildingsImage from '../../assets/buildings.avif';
 import styles from './Testimonials.module.css';
 
 const QUOTES = [
@@ -29,9 +31,45 @@ const QUOTES = [
 export default function Testimonials() {
   const headRef = useReveal();
   const ref = useReveal();
+  const sectionRef = useRef(null);
+  const bgRef = useRef(null);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    const bg = bgRef.current;
+    if (!section || !bg) return;
+
+    let rafId = null;
+
+    function update() {
+      const rect = section.getBoundingClientRect();
+      const viewportH = window.innerHeight;
+      const progress = (viewportH - rect.top) / (viewportH + rect.height);
+      const offset = (progress - 0.5) * 80;
+      bg.style.transform = `translateY(${offset}px)`;
+      rafId = null;
+    }
+
+    function onScroll() {
+      if (rafId == null) {
+        rafId = requestAnimationFrame(update);
+      }
+    }
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (rafId != null) cancelAnimationFrame(rafId);
+    };
+  }, []);
 
   return (
-    <section id="testimonials" className={`${styles.testimonials} section-bleed`}>
+    <section id="testimonials" ref={sectionRef} className={`${styles.testimonials} section-bleed`}>
+      <div ref={bgRef} className={styles.bgImage} style={{ backgroundImage: `url(${buildingsImage})` }} />
+      <div className={styles.bgOverlay} />
       <SectionDivider flip />
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
