@@ -1,4 +1,5 @@
 import WaveBackground from '../WaveBackground/WaveBackground';
+import AnimatedStat from './AnimatedStat';
 import styles from './Hero.module.css';
 
 export default function Hero() {
@@ -26,15 +27,15 @@ export default function Hero() {
 
         <dl className={styles.stats}>
           <div className={styles.stat}>
-            <dd>40+</dd>
+            <AnimatedStat value="40+" delay={150} />
             <dt>Systems shipped</dt>
           </div>
           <div className={styles.stat}>
-            <dd>6 wks</dd>
+            <AnimatedStat value="6 wks" delay={300} />
             <dt>Avg. time to launch</dt>
           </div>
           <div className={styles.stat}>
-            <dd>98%</dd>
+            <AnimatedStat value="98%" delay={450} />
             <dt>Client retention</dt>
           </div>
         </dl>
