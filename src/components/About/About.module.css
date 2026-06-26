@@ -33,11 +33,13 @@
 }
 
 .member {
+  position: relative;
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 220px;
+  padding-top: 14px;
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 650ms ease, transform 650ms ease;
@@ -53,12 +55,45 @@
 .grid:global(.is-visible) .member:nth-child(3) { transition-delay: 300ms; }
 .grid:global(.is-visible) .member:nth-child(4) { transition-delay: 450ms; }
 
+.rod {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 20px);
+  height: 5px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, #d6d9dd 0%, #7a8088 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.rod::before,
+.rod::after {
+  content: '';
+  position: absolute;
+  top: -3px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #e4e6e9, #7a8088);
+}
+
+.rod::before {
+  left: -7px;
+}
+
+.rod::after {
+  right: -7px;
+}
+
 .banner {
   position: relative;
+  margin-top: 9px;
   width: 100%;
-  aspect-ratio: 4 / 5.2;
+  aspect-ratio: 4 / 5.4;
   background: linear-gradient(160deg, var(--color-navy-800) 0%, var(--color-navy-900) 100%);
-  clip-path: polygon(0% 0%, 100% 0%, 100% 78%, 58% 78%, 50% 100%, 42% 78%, 0% 78%);
+  border-radius: 2px;
+  padding: 9px 7px;
   filter: drop-shadow(0 10px 16px rgba(2, 6, 16, 0.35));
   transition: filter var(--transition-base);
 }
@@ -67,35 +102,67 @@
   filter: drop-shadow(0 10px 16px rgba(2, 6, 16, 0.35)) drop-shadow(0 0 16px rgba(30, 91, 255, 0.35));
 }
 
-.photoPlaceholder {
+.ring {
   position: absolute;
-  top: 34%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52%;
-  aspect-ratio: 1;
+  top: -7px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
+  border: 2px solid #8a909a;
+  background: var(--color-ivory-100);
+}
+
+.ringLeft {
+  left: 18%;
+}
+
+.ringRight {
+  right: 18%;
+}
+
+.bannerFrame {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgba(247, 243, 236, 0.55);
+  padding: 0.6rem 0.4rem 0.5rem;
+}
+
+.bannerFrame::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(247, 243, 236, 0.28);
+  pointer-events: none;
+}
+
+.photoPlaceholder {
+  width: 58%;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
   background: rgba(247, 243, 236, 0.08);
   border: 1px solid rgba(247, 243, 236, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   color: rgba(247, 243, 236, 0.6);
 }
 
 .memberName {
-  margin-top: var(--space-sm);
+  margin-top: 0.6rem;
   font-weight: 700;
-  font-size: 1rem;
-  color: var(--color-navy-900);
+  font-size: 0.92rem;
+  color: var(--color-ivory-100);
   text-align: center;
 }
 
 .memberRole {
-  font-size: 0.85rem;
-  color: var(--color-graphite-600);
+  font-size: 0.76rem;
+  color: rgba(247, 243, 236, 0.6);
   margin-top: 0.15rem;
   text-align: center;
 }

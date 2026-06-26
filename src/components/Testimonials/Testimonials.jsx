@@ -27,13 +27,14 @@ const QUOTES = [
 ];
 
 export default function Testimonials() {
+  const headRef = useReveal();
   const ref = useReveal();
 
   return (
     <section id="testimonials" className={`${styles.testimonials} section-bleed`}>
       <SectionDivider flip />
       <div className="container">
-        <div className={styles.head}>
+        <div ref={headRef} className={`${styles.head} reveal`}>
           <p className="eyebrow">In Their Words</p>
           <h2 className={styles.heading}>Trusted by teams who needed it done right</h2>
         </div>
