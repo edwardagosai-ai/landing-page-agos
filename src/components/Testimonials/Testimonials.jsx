@@ -40,21 +40,34 @@ export default function Testimonials() {
     if (!section || !bg) return;
 
     let rafId = null;
+    let current = 0;
+    let target = 0;
 
-    function update() {
+    function getTarget() {
       const rect = section.getBoundingClientRect();
-      const offset = rect.top * 0.5;
-      bg.style.transform = `translateY(${offset}px)`;
-      rafId = null;
+      return rect.top * 0.35;
     }
 
-    function onScroll() {
-      if (rafId == null) {
-        rafId = requestAnimationFrame(update);
+    function tick() {
+      current += (target - current) * 0.08;
+      bg.style.transform = `translate3d(0, ${current.toFixed(2)}px, 0)`;
+      if (Math.abs(target - current) > 0.05) {
+        rafId = requestAnimationFrame(tick);
+      } else {
+        rafId = null;
       }
     }
 
-    update();
+    function onScroll() {
+      target = getTarget();
+      if (rafId == null) {
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    target = getTarget();
+    current = target;
+    bg.style.transform = `translate3d(0, ${current}px, 0)`;
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     return () => {
