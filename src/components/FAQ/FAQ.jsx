@@ -66,12 +66,6 @@ export default function FAQ() {
           <div className={styles.headCol}>
             <p className="eyebrow">Common Questions</p>
             <h2 className={styles.heading}>Still deciding? Here's what people usually ask</h2>
-            <svg className={styles.decor} viewBox="0 0 64 64" aria-hidden="true">
-              <path d="M8 14h48v28H24l-10 10v-10H8z" />
-              <circle cx="22" cy="28" r="1.4" fill="currentColor" stroke="none" />
-              <circle cx="32" cy="28" r="1.4" fill="currentColor" stroke="none" />
-              <circle cx="42" cy="28" r="1.4" fill="currentColor" stroke="none" />
-            </svg>
           </div>
 
           <div

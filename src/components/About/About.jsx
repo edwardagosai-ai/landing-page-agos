@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { useReveal } from '../../hooks/useReveal';
 import AngleDivider from '../AngleDivider/AngleDivider';
 import logoMark from '../../assets/logo-mark.png';
@@ -11,11 +12,11 @@ import {
 import styles from './About.module.css';
 
 const NODES = [
-  { Icon: WebIcon, label: 'Web app', x: 50, y: 12 },
-  { Icon: AutomationIcon, label: 'Automation', x: 86, y: 38 },
-  { Icon: SupportIcon, label: 'Support tools', x: 72, y: 81 },
-  { Icon: SystemsIcon, label: 'Internal systems', x: 28, y: 81 },
-  { Icon: IntegrationsIcon, label: 'Integrations', x: 14, y: 38 },
+  { Icon: WebIcon, label: 'Web app', x: 50, y: 10 },
+  { Icon: AutomationIcon, label: 'Automation', x: 89, y: 37 },
+  { Icon: SupportIcon, label: 'Support', x: 74, y: 85 },
+  { Icon: SystemsIcon, label: 'Systems', x: 26, y: 85 },
+  { Icon: IntegrationsIcon, label: 'Integrations', x: 11, y: 37 },
 ];
 
 export default function About() {
@@ -47,6 +48,8 @@ export default function About() {
 
           <div className={styles.diagramWrap}>
             <div className={styles.diagram}>
+              <div className={styles.diagramGlow} />
+
               <svg className={styles.diagramLines} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
                 {NODES.map((node) => (
                   <line
@@ -58,21 +61,37 @@ export default function About() {
                     vectorEffect="non-scaling-stroke"
                   />
                 ))}
+                {NODES.map((node, i) => {
+                  const mx = (50 + node.x) / 2;
+                  const my = (50 + node.y) / 2;
+                  return (
+                    <circle
+                      key={`${node.label}-dot`}
+                      cx={mx}
+                      cy={my}
+                      r="1.6"
+                      className={styles.dataDot}
+                      style={{ animationDelay: `${i * 0.3}s` }}
+                    />
+                  );
+                })}
               </svg>
 
               <div className={styles.hubNode}>
-                <img src={logoMark} alt="" className={styles.hubLogo} />
+                <div className={styles.hubBadge}>
+                  <img src={logoMark} alt="" className={styles.hubLogo} />
+                </div>
               </div>
 
               {NODES.map(({ Icon, label, x, y }) => (
-                <div
-                  key={label}
-                  className={styles.toolNode}
-                  style={{ left: `${x}%`, top: `${y}%` }}
-                  title={label}
-                >
-                  <Icon />
-                </div>
+                <Fragment key={label}>
+                  <div className={styles.toolNode} style={{ left: `${x}%`, top: `${y}%` }}>
+                    <Icon />
+                  </div>
+                  <span className={styles.nodeLabel} style={{ left: `${x}%`, top: `${y}%` }}>
+                    {label}
+                  </span>
+                </Fragment>
               ))}
             </div>
             <p className={styles.diagramCaption}>

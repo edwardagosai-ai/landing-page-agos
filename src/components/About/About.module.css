@@ -44,8 +44,16 @@
 .diagram {
   position: relative;
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   aspect-ratio: 1;
+}
+
+.diagramGlow {
+  position: absolute;
+  inset: -10%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(30, 91, 255, 0.16) 0%, rgba(30, 91, 255, 0.05) 45%, transparent 72%);
+  z-index: 0;
 }
 
 .diagramLines {
@@ -54,12 +62,27 @@
   width: 100%;
   height: 100%;
   overflow: visible;
+  z-index: 0;
 }
 
 .diagramLines line {
-  stroke: var(--color-blue-300);
-  stroke-width: 1;
-  opacity: 0.45;
+  stroke: var(--color-blue-500);
+  stroke-width: 1.4;
+  opacity: 0.6;
+}
+
+.dataDot {
+  fill: var(--color-blue-400);
+  animation: dot-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .hubNode {
@@ -67,46 +90,68 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: var(--color-navy-900);
   border: 2px solid var(--color-blue-400);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 0 8px rgba(30, 91, 255, 0.08), 0 8px 18px rgba(2, 6, 16, 0.25);
+  box-shadow: 0 0 0 9px rgba(30, 91, 255, 0.12), 0 8px 18px rgba(2, 6, 16, 0.3);
   z-index: 2;
 }
 
+.hubBadge {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-ivory-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .hubLogo {
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .toolNode {
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--color-white);
-  border: 1px solid var(--color-ivory-200);
+  background: var(--color-navy-900);
+  border: 1px solid var(--color-navy-700);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-blue-500);
-  box-shadow: 0 4px 10px rgba(10, 22, 40, 0.08);
+  color: var(--color-blue-300);
+  box-shadow: 0 6px 14px rgba(10, 22, 40, 0.18);
   z-index: 1;
 }
 
 .toolNode svg {
-  width: 19px;
-  height: 19px;
+  width: 21px;
+  height: 21px;
+}
+
+.nodeLabel {
+  position: absolute;
+  transform: translate(-50%, 22px);
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--color-graphite-700);
+  white-space: nowrap;
+  z-index: 1;
 }
 
 .diagramCaption {
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
   color: var(--color-graphite-600);
   font-size: 0.9rem;
   text-align: center;
