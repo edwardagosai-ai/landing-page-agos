@@ -8,7 +8,7 @@ function scramble(value) {
   return value.replace(/[0-9]/g, () => WIDE_DIGITS[Math.floor(Math.random() * WIDE_DIGITS.length)]);
 }
 
-const TOTAL_TICKS = 26;
+const TOTAL_TICKS = 18;
 
 // Ease-in weighting: early gaps are tiny (fast flicker), later gaps grow
 // (visibly slowing down) right before landing on the real value.
