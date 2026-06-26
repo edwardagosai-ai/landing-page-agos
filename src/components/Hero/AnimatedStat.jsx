@@ -1,46 +1,94 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-// Excludes "1" — it's narrow compared to the other glyphs in this font and
-// makes the digits visibly shuffle left/right as they scramble.
+// Excludes "1" — it's narrower than the other digits in Fraunces and made
+// the stat numbers visibly shuffle sideways as they flickered.
 const WIDE_DIGITS = '023456789';
 
-function scramble(value) {
-  return value.replace(/[0-9]/g, () => WIDE_DIGITS[Math.floor(Math.random() * WIDE_DIGITS.length)]);
+function randomDigit() {
+  return WIDE_DIGITS[Math.floor(Math.random() * WIDE_DIGITS.length)];
 }
 
-const TOTAL_TICKS = 18;
+// Each digit gets its own lock time (later digits settle later) and its own
+// flicker rate, so digits lock in one by one like a slot machine reel
+// instead of the whole string flickering and snapping together at once.
+function buildSchedule(value, settleAfter) {
+  const chars = value.split('');
+  const digitIndices = chars
+    .map((char, index) => (/[0-9]/.test(char) ? index : null))
+    .filter((index) => index !== null);
 
-// Ease-in weighting: early gaps are tiny (fast flicker), later gaps grow
-// (visibly slowing down) right before landing on the real value.
-function buildDelays(totalDuration, totalTicks) {
-  const weights = Array.from({ length: totalTicks }, (_, i) => (i + 1) ** 2);
-  const weightSum = weights.reduce((sum, w) => sum + w, 0);
-  return weights.map((w) => (w / weightSum) * totalDuration);
+  const lockAt = {};
+  const flickerMs = {};
+  digitIndices.forEach((charIndex, k) => {
+    const fraction = (k + 1) / digitIndices.length;
+    const jitter = (Math.random() - 0.5) * 0.08 * settleAfter;
+    lockAt[charIndex] = Math.max(0, settleAfter * (0.5 + 0.5 * fraction) + jitter);
+    flickerMs[charIndex] = 38 + k * 6 + Math.random() * 12;
+  });
+
+  return { chars, digitIndices, lockAt, flickerMs };
 }
 
-export default function AnimatedStat({ value, settleAfter = 900 }) {
-  const [display, setDisplay] = useState(() => scramble(value));
+export default function AnimatedStat({ value, settleAfter = 1200 }) {
+  const [display, setDisplay] = useState(() => {
+    const { chars, digitIndices } = buildSchedule(value, settleAfter);
+    const initial = [...chars];
+    digitIndices.forEach((i) => {
+      initial[i] = randomDigit();
+    });
+    return initial.join('');
+  });
+  const rafRef = useRef(null);
 
   useEffect(() => {
-    const delays = buildDelays(settleAfter, TOTAL_TICKS);
-    let tick = 0;
-    let timeoutId;
+    const { chars, digitIndices, lockAt, flickerMs } = buildSchedule(value, settleAfter);
 
-    function schedule() {
-      timeoutId = setTimeout(() => {
-        tick += 1;
-        if (tick >= TOTAL_TICKS) {
-          setDisplay(value);
+    const current = [...chars];
+    const lastFlicker = {};
+    const locked = {};
+    digitIndices.forEach((i) => {
+      current[i] = randomDigit();
+      lastFlicker[i] = 0;
+      locked[i] = false;
+    });
+    setDisplay(current.join(''));
+
+    let startTime = null;
+
+    function frame(now) {
+      if (startTime === null) startTime = now;
+      const elapsed = now - startTime;
+      let changed = false;
+
+      digitIndices.forEach((i) => {
+        if (locked[i]) return;
+        if (elapsed >= lockAt[i]) {
+          current[i] = chars[i];
+          locked[i] = true;
+          changed = true;
           return;
         }
-        setDisplay(scramble(value));
-        schedule();
-      }, delays[tick]);
+        if (elapsed - lastFlicker[i] >= flickerMs[i]) {
+          current[i] = randomDigit();
+          lastFlicker[i] = elapsed;
+          changed = true;
+        }
+      });
+
+      if (changed) {
+        setDisplay(current.join(''));
+      }
+
+      if (digitIndices.some((i) => !locked[i])) {
+        rafRef.current = requestAnimationFrame(frame);
+      }
     }
 
-    schedule();
+    rafRef.current = requestAnimationFrame(frame);
 
-    return () => clearTimeout(timeoutId);
+    return () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, [value, settleAfter]);
 
   return <dd>{display}</dd>;
