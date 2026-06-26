@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useReveal } from '../../hooks/useReveal';
-import SectionDivider from '../SectionDivider/SectionDivider';
+import AngleDivider from '../AngleDivider/AngleDivider';
 import styles from './FAQ.module.css';
 
 const ITEMS = [
@@ -36,7 +36,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className={`${styles.faq} section-bleed`}>
-      <SectionDivider />
+      <AngleDivider />
       <div className="container">
         <div ref={ref} className={`${styles.wrap} reveal`}>
           <div>
