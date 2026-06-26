@@ -53,23 +53,36 @@
 .grid:global(.is-visible) .member:nth-child(3) { transition-delay: 300ms; }
 .grid:global(.is-visible) .member:nth-child(4) { transition-delay: 450ms; }
 
-.photoPlaceholder {
+.banner {
+  position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-md);
+  aspect-ratio: 4 / 5.2;
   background: linear-gradient(160deg, var(--color-navy-800) 0%, var(--color-navy-900) 100%);
-  border: 1px solid var(--color-ivory-200);
+  clip-path: polygon(0% 0%, 100% 0%, 100% 78%, 58% 78%, 50% 100%, 42% 78%, 0% 78%);
+  filter: drop-shadow(0 10px 16px rgba(2, 6, 16, 0.35));
+  transition: filter var(--transition-base);
+}
+
+.member:hover .banner {
+  filter: drop-shadow(0 10px 16px rgba(2, 6, 16, 0.35)) drop-shadow(0 0 16px rgba(30, 91, 255, 0.35));
+}
+
+.photoPlaceholder {
+  position: absolute;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(247, 243, 236, 0.08);
+  border: 1px solid rgba(247, 243, 236, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 2.2rem;
-  color: rgba(247, 243, 236, 0.5);
-  transition: box-shadow var(--transition-base);
-}
-
-.member:hover .photoPlaceholder {
-  box-shadow: 0 0 18px rgba(30, 91, 255, 0.3);
+  font-size: 1.5rem;
+  color: rgba(247, 243, 236, 0.6);
 }
 
 .memberName {

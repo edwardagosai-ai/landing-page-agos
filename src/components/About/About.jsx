@@ -37,7 +37,9 @@ export default function About() {
           <div className={styles.team}>
             {TEAM.map((member) => (
               <div key={member.name} className={styles.member}>
-                <div className={styles.photoPlaceholder}>{member.initials}</div>
+                <div className={styles.banner}>
+                  <div className={styles.photoPlaceholder}>{member.initials}</div>
+                </div>
                 <div className={styles.memberName}>{member.name}</div>
                 <div className={styles.memberRole}>{member.role}</div>
               </div>
