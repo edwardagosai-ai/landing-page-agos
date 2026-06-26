@@ -3,20 +3,20 @@ import { useReveal } from '../../hooks/useReveal';
 import AngleDivider from '../AngleDivider/AngleDivider';
 import logoMark from '../../assets/logo-mark.png';
 import {
-  WebIcon,
-  AutomationIcon,
-  SystemsIcon,
-  IntegrationsIcon,
-  SupportIcon,
-} from '../Services/icons';
+  CRMIcon,
+  InventoryIcon,
+  DatabaseIcon,
+  AccountingIcon,
+  SchedulingIcon,
+} from './toolIcons';
 import styles from './About.module.css';
 
 const NODES = [
-  { Icon: WebIcon, label: 'Web app', x: 50, y: 10 },
-  { Icon: AutomationIcon, label: 'Automation', x: 89, y: 37 },
-  { Icon: SupportIcon, label: 'Support', x: 74, y: 85 },
-  { Icon: SystemsIcon, label: 'Systems', x: 26, y: 85 },
-  { Icon: IntegrationsIcon, label: 'Integrations', x: 11, y: 37 },
+  { Icon: CRMIcon, label: 'CRM', x: 50, y: 10 },
+  { Icon: AccountingIcon, label: 'Accounting', x: 89, y: 37 },
+  { Icon: SchedulingIcon, label: 'Scheduling', x: 74, y: 85 },
+  { Icon: InventoryIcon, label: 'Inventory', x: 26, y: 85 },
+  { Icon: DatabaseIcon, label: 'Database', x: 11, y: 37 },
 ];
 
 export default function About() {
@@ -61,26 +61,28 @@ export default function About() {
                     vectorEffect="non-scaling-stroke"
                   />
                 ))}
-                {NODES.map((node, i) => {
-                  const mx = (50 + node.x) / 2;
-                  const my = (50 + node.y) / 2;
-                  return (
-                    <circle
-                      key={`${node.label}-dot`}
-                      cx={mx}
-                      cy={my}
-                      r="1.6"
-                      className={styles.dataDot}
-                      style={{ animationDelay: `${i * 0.3}s` }}
+                {NODES.map((node, i) => (
+                  <circle key={`${node.label}-dot`} r="1.6" className={styles.dataDot}>
+                    <animate
+                      attributeName="cx"
+                      values={`50;${node.x};50`}
+                      dur="2.8s"
+                      begin={`${i * 0.35}s`}
+                      repeatCount="indefinite"
                     />
-                  );
-                })}
+                    <animate
+                      attributeName="cy"
+                      values={`50;${node.y};50`}
+                      dur="2.8s"
+                      begin={`${i * 0.35}s`}
+                      repeatCount="indefinite"
+                    />
+                  </circle>
+                ))}
               </svg>
 
               <div className={styles.hubNode}>
-                <div className={styles.hubBadge}>
-                  <img src={logoMark} alt="" className={styles.hubLogo} />
-                </div>
+                <img src={logoMark} alt="" className={styles.hubLogo} />
               </div>
 
               {NODES.map(({ Icon, label, x, y }) => (
