@@ -11,10 +11,10 @@
 
 .bgImage {
   position: absolute;
-  top: -35%;
+  top: -60%;
   left: 0;
   right: 0;
-  height: 170%;
+  height: 220%;
   background-size: cover;
   background-position: center;
   will-change: transform;
@@ -25,9 +25,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(6, 13, 26, 0.88) 0%,
-    rgba(10, 22, 40, 0.82) 45%,
-    rgba(6, 13, 26, 0.92) 100%
+    rgba(6, 13, 26, 0.62) 0%,
+    rgba(10, 22, 40, 0.5) 45%,
+    rgba(6, 13, 26, 0.7) 100%
   );
 }
 

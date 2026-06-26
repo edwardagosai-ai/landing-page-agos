@@ -43,7 +43,7 @@ export default function Testimonials() {
 
     function update() {
       const rect = section.getBoundingClientRect();
-      const offset = rect.top * 0.18;
+      const offset = rect.top * 0.5;
       bg.style.transform = `translateY(${offset}px)`;
       rafId = null;
     }
