@@ -55,12 +55,14 @@ function handleCardMove(event) {
   card.style.setProperty('--ry', `${(px - 0.5) * MAX_TILT_DEG}deg`);
   card.style.setProperty('--mx', `${px * 100}%`);
   card.style.setProperty('--my', `${py * 100}%`);
+  card.style.setProperty('--beam-opacity', '1');
 }
 
 function handleCardLeave(event) {
   const card = event.currentTarget;
   card.style.setProperty('--rx', '0deg');
   card.style.setProperty('--ry', '0deg');
+  card.style.setProperty('--beam-opacity', '0');
 }
 
 export default function Services() {
