@@ -1,5 +1,5 @@
 .services {
-  background: radial-gradient(ellipse at 50% 50%, var(--color-navy-700) 0%, var(--color-navy-900) 50%, var(--color-navy-950) 100%);
+  background: var(--color-navy-900);
   padding: var(--space-2xl) 0;
   --bleed-from: rgba(247, 243, 236, 0.16);
 }
