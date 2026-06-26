@@ -54,8 +54,15 @@
 .card::after {
   content: '';
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at var(--mx) var(--my), rgba(255, 255, 255, 0.22), transparent 55%);
+  inset: -50%;
+  background: linear-gradient(
+    125deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.16) 50%,
+    transparent 60%
+  );
+  background-size: 220% 220%;
+  background-position: calc(var(--mx) - 60%) calc(var(--my) - 60%);
   opacity: 0;
   transition: opacity 200ms ease;
   mix-blend-mode: soft-light;
