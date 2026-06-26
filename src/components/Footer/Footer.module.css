@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(165deg, var(--color-navy-900) 0%, var(--color-navy-950) 100%);
+  background: radial-gradient(ellipse at 50% 0%, var(--color-navy-700) 0%, var(--color-navy-900) 50%, var(--color-navy-950) 100%);
   padding: var(--space-xl) 0 var(--space-lg);
 }
 
