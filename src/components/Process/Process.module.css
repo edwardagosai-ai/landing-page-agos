@@ -28,42 +28,43 @@
   position: relative;
 }
 
-.timeline::before {
-  content: '';
+.squiggleDesktop {
   position: absolute;
-  top: 22px;
+  top: 2px;
   left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--color-ivory-200);
-}
-
-.flow {
-  position: absolute;
-  top: 21px;
-  left: 0;
-  width: 90px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--color-blue-500), transparent);
-  border-radius: 2px;
+  width: 75%;
+  height: 40px;
   pointer-events: none;
-  animation: flow-x 4.5s ease-in-out infinite;
+  overflow: visible;
 }
 
-@keyframes flow-x {
+.squiggleMobile {
+  display: none;
+  pointer-events: none;
+}
+
+.track {
+  fill: none;
+  stroke: var(--color-ivory-200);
+  stroke-width: 1.5;
+}
+
+.pulse {
+  fill: none;
+  stroke: var(--color-blue-500);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-dasharray: 16 84;
+  filter: drop-shadow(0 0 3px rgba(30, 91, 255, 0.55));
+  animation: squiggle-flow 4.5s linear infinite;
+}
+
+@keyframes squiggle-flow {
   0% {
-    left: 0%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  88% {
-    opacity: 1;
+    stroke-dashoffset: 16;
   }
   100% {
-    left: calc(100% - 90px);
-    opacity: 0;
+    stroke-dashoffset: -100;
   }
 }
 
@@ -104,38 +105,17 @@
     gap: var(--space-lg);
   }
 
-  .timeline::before {
-    top: 0;
-    bottom: 0;
-    left: 22px;
-    width: 1px;
-    height: auto;
-    right: auto;
+  .squiggleDesktop {
+    display: none;
   }
 
-  .flow {
+  .squiggleMobile {
+    display: block;
+    position: absolute;
     top: 0;
-    left: 21px;
-    width: 2px;
-    height: 90px;
-    background: linear-gradient(180deg, transparent, var(--color-blue-500), transparent);
-    animation: flow-y 4.5s ease-in-out infinite;
-  }
-}
-
-@keyframes flow-y {
-  0% {
-    top: 0%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  88% {
-    opacity: 1;
-  }
-  100% {
-    top: calc(100% - 90px);
-    opacity: 0;
+    left: 2px;
+    width: 40px;
+    height: 75%;
+    overflow: visible;
   }
 }
