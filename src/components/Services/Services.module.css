@@ -36,7 +36,7 @@
   isolation: isolate;
   width: 100%;
   max-width: 250px;
-  aspect-ratio: 0.62;
+  min-height: 230px;
   margin: 0 auto;
   background: var(--color-navy-800);
   border: 1px solid var(--color-navy-700);
@@ -69,7 +69,6 @@
 .cardInner {
   position: relative;
   z-index: 1;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -104,6 +103,5 @@
 
   .card {
     max-width: 360px;
-    aspect-ratio: auto;
   }
 }
