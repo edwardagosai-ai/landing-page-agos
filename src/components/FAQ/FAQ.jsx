@@ -34,12 +34,22 @@ export default function FAQ() {
   const ref = useReveal();
   const [openIndex, setOpenIndex] = useState(0);
   const answerRefs = useRef([]);
+  const questionRefs = useRef([]);
   const [maxAnswerHeight, setMaxAnswerHeight] = useState(240);
+  const [reservedHeight, setReservedHeight] = useState(null);
 
   useEffect(() => {
     function measure() {
-      const heights = answerRefs.current.map((el) => el?.offsetHeight || 0);
-      setMaxAnswerHeight(Math.max(...heights, 0) + 4);
+      const answerHeights = answerRefs.current.map((el) => el?.offsetHeight || 0);
+      const tallestAnswer = Math.max(...answerHeights, 0) + 4;
+
+      const closedTotal = questionRefs.current.reduce(
+        (sum, el) => sum + (el?.offsetHeight || 0) + 1,
+        0
+      );
+
+      setMaxAnswerHeight(tallestAnswer);
+      setReservedHeight(closedTotal + tallestAnswer);
     }
 
     measure();
@@ -58,7 +68,13 @@ export default function FAQ() {
             <h2 className={styles.heading}>Still deciding? Here's what people usually ask</h2>
           </div>
 
-          <div className={styles.list} style={{ '--max-answer-height': `${maxAnswerHeight}px` }}>
+          <div
+            className={styles.list}
+            style={{
+              '--max-answer-height': `${maxAnswerHeight}px`,
+              minHeight: reservedHeight != null ? `${reservedHeight}px` : undefined,
+            }}
+          >
             {ITEMS.map((item, index) => {
               const isOpen = openIndex === index;
               return (
@@ -66,6 +82,7 @@ export default function FAQ() {
                   <button
                     type="button"
                     className={styles.question}
+                    ref={(el) => (questionRefs.current[index] = el)}
                     onClick={() => setOpenIndex(isOpen ? -1 : index)}
                     aria-expanded={isOpen}
                   >

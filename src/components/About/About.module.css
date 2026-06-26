@@ -40,6 +40,12 @@
   border: 1px solid var(--color-ivory-200);
   border-radius: var(--radius-md);
   background: var(--color-white);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.member:hover {
+  border-color: rgba(30, 91, 255, 0.45);
+  box-shadow: 0 0 14px rgba(30, 91, 255, 0.25);
 }
 
 .avatar {
