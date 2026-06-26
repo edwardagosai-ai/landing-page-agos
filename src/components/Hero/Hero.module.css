@@ -71,18 +71,19 @@
 }
 
 .primaryCta {
-  background: var(--color-blue-500);
+  background: transparent;
   color: var(--color-white);
-  border: none;
-  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-blue-400);
+  border-radius: var(--radius-md);
   padding: 0.95rem 1.9rem;
   font-size: 1rem;
   font-weight: 600;
-  transition: background var(--transition-base), transform var(--transition-base);
+  transition: background var(--transition-base), border-color var(--transition-base), transform var(--transition-base);
 }
 
 .primaryCta:hover {
-  background: var(--color-blue-400);
+  background: rgba(30, 91, 255, 0.12);
+  border-color: var(--color-blue-300);
   transform: translateY(-2px);
 }
 
