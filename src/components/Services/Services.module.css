@@ -1,5 +1,5 @@
 .services {
-  background: var(--color-navy-900);
+  background: linear-gradient(165deg, var(--color-navy-800) 0%, var(--color-navy-900) 45%, var(--color-navy-950) 100%);
   padding: var(--space-2xl) 0;
   --bleed-from: rgba(247, 243, 236, 0.16);
 }
