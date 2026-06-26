@@ -50,11 +50,3 @@
   opacity: 0.5;
   filter: blur(0.5px);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .layerBack,
-  .layerMid,
-  .layerFront {
-    animation: none;
-  }
-}
