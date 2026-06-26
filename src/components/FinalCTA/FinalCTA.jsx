@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { submitContact } from '../../api/submitContact';
 import WaveBackground from '../WaveBackground/WaveBackground';
+import SectionDivider from '../SectionDivider/SectionDivider';
 import { useReveal } from '../../hooks/useReveal';
 import styles from './FinalCTA.module.css';
 
@@ -26,6 +27,7 @@ export default function FinalCTA() {
 
   return (
     <section id="contact" className={`${styles.cta} section-bleed`}>
+      <SectionDivider flip />
       <WaveBackground tone="dark" />
       <div className={`container ${styles.grid} reveal`} ref={ref}>
         <div>

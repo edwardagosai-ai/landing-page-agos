@@ -98,18 +98,6 @@ ul {
   overflow: hidden;
 }
 
-.section-bleed::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 140px;
-  z-index: 0;
-  pointer-events: none;
-  background: linear-gradient(to bottom, var(--bleed-from, transparent), transparent);
-}
-
 @media (max-width: 720px) {
   .container {
     padding: 0 var(--space-sm);

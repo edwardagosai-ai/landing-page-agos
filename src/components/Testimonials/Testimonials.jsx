@@ -1,4 +1,5 @@
 import { useReveal } from '../../hooks/useReveal';
+import SectionDivider from '../SectionDivider/SectionDivider';
 import styles from './Testimonials.module.css';
 
 const QUOTES = [
@@ -30,6 +31,7 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className={`${styles.testimonials} section-bleed`}>
+      <SectionDivider flip />
       <div className="container">
         <div className={styles.head}>
           <p className="eyebrow">In Their Words</p>

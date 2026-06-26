@@ -1,4 +1,5 @@
 import { useReveal } from '../../hooks/useReveal';
+import SectionDivider from '../SectionDivider/SectionDivider';
 import styles from './About.module.css';
 
 const TEAM = [
@@ -12,6 +13,7 @@ export default function About() {
 
   return (
     <section id="about" className={`${styles.about} section-bleed`}>
+      <SectionDivider />
       <div className="container">
         <div ref={ref} className={`${styles.grid} reveal`}>
           <div>

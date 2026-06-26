@@ -1,4 +1,5 @@
 import { useReveal } from '../../hooks/useReveal';
+import SectionDivider from '../SectionDivider/SectionDivider';
 import {
   WebIcon,
   MobileIcon,
@@ -42,12 +43,33 @@ const SERVICES = [
   },
 ];
 
+const MAX_TILT_DEG = 9;
+
+function handleCardMove(event) {
+  const card = event.currentTarget;
+  const rect = card.getBoundingClientRect();
+  const px = (event.clientX - rect.left) / rect.width;
+  const py = (event.clientY - rect.top) / rect.height;
+
+  card.style.setProperty('--rx', `${(0.5 - py) * MAX_TILT_DEG}deg`);
+  card.style.setProperty('--ry', `${(px - 0.5) * MAX_TILT_DEG}deg`);
+  card.style.setProperty('--mx', `${px * 100}%`);
+  card.style.setProperty('--my', `${py * 100}%`);
+}
+
+function handleCardLeave(event) {
+  const card = event.currentTarget;
+  card.style.setProperty('--rx', '0deg');
+  card.style.setProperty('--ry', '0deg');
+}
+
 export default function Services() {
   const headRef = useReveal();
   const gridRef = useReveal();
 
   return (
     <section id="services" className={`${styles.services} section-bleed`}>
+      <SectionDivider flip />
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
           <p className="eyebrow">What We Build</p>
@@ -60,12 +82,19 @@ export default function Services() {
 
         <div ref={gridRef} className={`${styles.grid} reveal`}>
           {SERVICES.map(({ Icon, title, copy }) => (
-            <div key={title} className={styles.card}>
-              <div className={styles.icon}>
-                <Icon />
+            <div
+              key={title}
+              className={styles.card}
+              onMouseMove={handleCardMove}
+              onMouseLeave={handleCardLeave}
+            >
+              <div className={styles.cardInner}>
+                <div className={styles.icon}>
+                  <Icon />
+                </div>
+                <h3 className={styles.cardTitle}>{title}</h3>
+                <p className={styles.cardCopy}>{copy}</p>
               </div>
-              <h3 className={styles.cardTitle}>{title}</h3>
-              <p className={styles.cardCopy}>{copy}</p>
             </div>
           ))}
         </div>
