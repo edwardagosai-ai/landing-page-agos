@@ -27,15 +27,15 @@ export default function Hero() {
 
         <dl className={styles.stats}>
           <div className={styles.stat}>
-            <AnimatedStat value="40+" delay={150} />
+            <AnimatedStat value="40+" settleAfter={550} />
             <dt>Systems shipped</dt>
           </div>
           <div className={styles.stat}>
-            <AnimatedStat value="6 wks" delay={300} />
+            <AnimatedStat value="6 wks" settleAfter={700} />
             <dt>Avg. time to launch</dt>
           </div>
           <div className={styles.stat}>
-            <AnimatedStat value="98%" delay={450} />
+            <AnimatedStat value="98%" settleAfter={850} />
             <dt>Client retention</dt>
           </div>
         </dl>

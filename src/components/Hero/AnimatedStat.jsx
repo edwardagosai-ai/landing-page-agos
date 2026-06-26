@@ -4,31 +4,27 @@ function scramble(value) {
   return value.replace(/[0-9]/g, () => Math.floor(Math.random() * 10));
 }
 
-export default function AnimatedStat({ value, delay = 0 }) {
+const TICK_MS = 45;
+
+export default function AnimatedStat({ value, settleAfter = 650 }) {
   const [display, setDisplay] = useState(() => scramble(value));
 
   useEffect(() => {
-    const ticks = 14;
+    const totalTicks = Math.round(settleAfter / TICK_MS);
     let tick = 0;
-    let intervalId;
 
-    const startTimeout = setTimeout(() => {
-      intervalId = setInterval(() => {
-        tick += 1;
-        if (tick >= ticks) {
-          clearInterval(intervalId);
-          setDisplay(value);
-          return;
-        }
-        setDisplay(scramble(value));
-      }, 45);
-    }, delay);
+    const intervalId = setInterval(() => {
+      tick += 1;
+      if (tick >= totalTicks) {
+        clearInterval(intervalId);
+        setDisplay(value);
+        return;
+      }
+      setDisplay(scramble(value));
+    }, TICK_MS);
 
-    return () => {
-      clearTimeout(startTimeout);
-      clearInterval(intervalId);
-    };
-  }, [value, delay]);
+    return () => clearInterval(intervalId);
+  }, [value, settleAfter]);
 
   return <dd>{display}</dd>;
 }
