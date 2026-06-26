@@ -35,7 +35,7 @@ export default function Process() {
       if (!timeline || !lastNumber) return;
       const timelineTop = timeline.getBoundingClientRect().top;
       const rect = lastNumber.getBoundingClientRect();
-      setMobileLineHeight((rect.top + rect.bottom) / 2 - timelineTop);
+      setMobileLineHeight((rect.top + rect.bottom) / 2 - timelineTop - 22);
     }
 
     measure();
@@ -99,8 +99,10 @@ export default function Process() {
               >
                 {index + 1}
               </div>
-              <h3 className={styles.stepTitle}>{step.title}</h3>
-              <p className={styles.stepCopy}>{step.copy}</p>
+              <div className={styles.stepContent}>
+                <h3 className={styles.stepTitle}>{step.title}</h3>
+                <p className={styles.stepCopy}>{step.copy}</p>
+              </div>
             </div>
           ))}
         </div>
