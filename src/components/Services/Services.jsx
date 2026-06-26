@@ -2,7 +2,7 @@ import { useReveal } from '../../hooks/useReveal';
 import SectionDivider from '../SectionDivider/SectionDivider';
 import {
   WebIcon,
-  MobileIcon,
+  AgenticIcon,
   AutomationIcon,
   SystemsIcon,
   IntegrationsIcon,
@@ -17,9 +17,9 @@ const SERVICES = [
     copy: 'Custom dashboards, client portals, and internal tools built to handle real workloads — not just demos.',
   },
   {
-    Icon: MobileIcon,
-    title: 'Mobile Apps',
-    copy: 'Native-feel iOS and Android apps for customer-facing products or field teams that need to work offline.',
+    Icon: AgenticIcon,
+    title: 'Agentic Software Development',
+    copy: 'We design and integrate AI agents for inbound and outbound work — instant speed-to-lead response, qualification, and FAQ handling, so no lead waits on a human.',
   },
   {
     Icon: AutomationIcon,

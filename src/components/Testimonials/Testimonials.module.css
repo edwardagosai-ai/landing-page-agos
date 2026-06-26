@@ -62,10 +62,10 @@
 }
 
 .featured .quote {
-  font-size: 1.25rem;
+  font-size: clamp(1.5rem, 2.4vw, 1.85rem);
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.4;
+  line-height: 1.35;
   color: var(--color-ivory-100);
 }
 

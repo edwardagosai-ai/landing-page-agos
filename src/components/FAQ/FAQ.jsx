@@ -48,7 +48,7 @@ export default function FAQ() {
             {ITEMS.map((item, index) => {
               const isOpen = openIndex === index;
               return (
-                <div key={item.q} className={styles.item}>
+                <div key={item.q} className={`${styles.item} ${isOpen ? styles.itemOpen : ''}`}>
                   <button
                     type="button"
                     className={styles.question}

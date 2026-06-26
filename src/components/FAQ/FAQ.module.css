@@ -24,6 +24,13 @@
 
 .item {
   border-bottom: 1px solid var(--color-ivory-200);
+  border-radius: var(--radius-md);
+  background: transparent;
+  transition: background var(--transition-base);
+}
+
+.itemOpen {
+  background: rgba(30, 91, 255, 0.07);
 }
 
 .question {
@@ -31,7 +38,7 @@
   background: none;
   border: none;
   text-align: left;
-  padding: var(--space-md) 0;
+  padding: var(--space-md) var(--space-sm);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +71,7 @@
 }
 
 .answerInner {
-  padding-bottom: var(--space-md);
+  padding: 0 var(--space-sm) var(--space-md);
   color: var(--color-graphite-700);
   font-size: 0.95rem;
   max-width: 560px;

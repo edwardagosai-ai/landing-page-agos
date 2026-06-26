@@ -20,13 +20,15 @@ export function WebIcon() {
   );
 }
 
-export function MobileIcon() {
+export function AgenticIcon() {
   return (
     <svg {...common}>
-      <rect x="14" y="5" width="20" height="38" rx="4" />
-      <path d="M14 33h20" />
-      <circle cx="24" cy="38.5" r="1" fill="currentColor" stroke="none" />
-      <path d="M19 22c1.7-3 3.3-3 5 0s3.3 3 5 0" />
+      <rect x="15" y="15" width="18" height="18" rx="4" transform="rotate(45 24 24)" />
+      <circle cx="24" cy="24" r="1.3" fill="currentColor" stroke="none" />
+      <path d="M24 9c-5 3-5 7-2 9" />
+      <path d="M24 39c5-3 5-7 2-9" />
+      <circle cx="22" cy="7" r="1" fill="currentColor" stroke="none" />
+      <circle cx="26" cy="41" r="1" fill="currentColor" stroke="none" />
     </svg>
   );
 }

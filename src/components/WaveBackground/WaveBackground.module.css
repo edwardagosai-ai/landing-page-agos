@@ -20,17 +20,17 @@
 }
 
 .layerBack {
-  animation: drift 46s linear infinite;
+  animation: drift 64s linear infinite;
   opacity: 0.35;
 }
 
 .layerMid {
-  animation: drift 32s linear infinite;
+  animation: drift 44s linear infinite;
   opacity: 0.5;
 }
 
 .layerFront {
-  animation: drift 22s linear infinite;
+  animation: drift 30s linear infinite;
   opacity: 0.7;
 }
 

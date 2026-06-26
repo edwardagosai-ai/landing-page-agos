@@ -3,9 +3,8 @@ import SectionDivider from '../SectionDivider/SectionDivider';
 import styles from './About.module.css';
 
 const TEAM = [
-  { initials: 'JD', name: 'Jordan Diaz', role: 'Founder & Lead Engineer' },
-  { initials: 'MA', name: 'Mara Alonzo', role: 'Product & Client Strategy' },
-  { initials: 'KT', name: 'Kai Tanaka', role: 'Automation Architect' },
+  { initials: 'JB', name: 'Joshua Barrios', role: 'Director of Operations' },
+  { initials: 'HB', name: 'Howell Bautista', role: 'CTO' },
 ];
 
 export default function About() {

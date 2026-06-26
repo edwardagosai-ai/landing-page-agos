@@ -11,7 +11,7 @@
 .inner {
   position: relative;
   z-index: 1;
-  max-width: 700px;
+  max-width: 800px;
   padding-top: var(--space-xl);
   padding-bottom: var(--space-2xl);
 }
@@ -22,7 +22,7 @@
 
 .headline {
   color: var(--color-ivory-100);
-  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-size: clamp(2.8rem, 6.4vw, 4.9rem);
   margin-top: var(--space-sm);
   letter-spacing: -0.01em;
 }

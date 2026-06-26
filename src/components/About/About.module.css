@@ -8,7 +8,6 @@
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   gap: var(--space-xl);
-  align-items: start;
 }
 
 .heading {
@@ -28,7 +27,9 @@
 .team {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: var(--space-md);
+  height: 100%;
 }
 
 .member {
