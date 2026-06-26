@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-export function useReveal({ threshold = 0.3, delay = 200 } = {}) {
+export function useReveal({ threshold = 0.35, delay = 260 } = {}) {
   const ref = useRef(null);
 
   useEffect(() => {

@@ -67,7 +67,7 @@ function handleCardLeave(event) {
 
 export default function Services() {
   const headRef = useReveal();
-  const gridRef = useReveal();
+  const gridRef = useReveal({ threshold: 0.5, delay: 350 });
 
   return (
     <section id="services" className={`${styles.services} section-bleed`}>

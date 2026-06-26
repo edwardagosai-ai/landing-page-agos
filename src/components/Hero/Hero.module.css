@@ -132,13 +132,3 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .eyebrow,
-  .headline,
-  .subhead,
-  .actions,
-  .stats {
-    opacity: 1;
-    animation: none;
-  }
-}

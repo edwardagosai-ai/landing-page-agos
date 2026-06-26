@@ -116,18 +116,10 @@ ul {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity 850ms ease, transform 850ms ease;
+  transition: opacity 950ms ease, transform 950ms ease;
 }
 
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
 }

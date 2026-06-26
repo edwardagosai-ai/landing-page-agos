@@ -33,20 +33,21 @@
   --mx: 50%;
   --my: 50%;
   --beam-opacity: 0;
-  --reveal-y: 14px;
+  --reveal-y: 18px;
   position: relative;
   isolation: isolate;
   width: 100%;
   max-width: 250px;
   min-height: 230px;
   margin: 0 auto;
-  background: var(--color-navy-800);
+  background: linear-gradient(160deg, var(--color-navy-700) 0%, var(--color-navy-800) 45%, var(--color-navy-900) 100%);
   border: 1px solid var(--color-navy-700);
   border-radius: var(--radius-lg);
   padding: var(--space-md);
   opacity: 0;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 30px rgba(2, 6, 16, 0.35);
   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--reveal-y));
-  transition: border-color var(--transition-base), transform 250ms ease, opacity 550ms ease;
+  transition: border-color var(--transition-base), transform 250ms ease, opacity 700ms ease;
   overflow: hidden;
 }
 
@@ -60,11 +61,11 @@
 }
 
 .grid:global(.is-visible) .card:nth-child(1) { transition-delay: 0ms; }
-.grid:global(.is-visible) .card:nth-child(2) { transition-delay: 90ms; }
-.grid:global(.is-visible) .card:nth-child(3) { transition-delay: 180ms; }
-.grid:global(.is-visible) .card:nth-child(4) { transition-delay: 270ms; }
-.grid:global(.is-visible) .card:nth-child(5) { transition-delay: 360ms; }
-.grid:global(.is-visible) .card:nth-child(6) { transition-delay: 450ms; }
+.grid:global(.is-visible) .card:nth-child(2) { transition-delay: 140ms; }
+.grid:global(.is-visible) .card:nth-child(3) { transition-delay: 280ms; }
+.grid:global(.is-visible) .card:nth-child(4) { transition-delay: 420ms; }
+.grid:global(.is-visible) .card:nth-child(5) { transition-delay: 560ms; }
+.grid:global(.is-visible) .card:nth-child(6) { transition-delay: 700ms; }
 
 .card::after {
   content: '';

@@ -33,7 +33,7 @@
   flex-direction: column;
   opacity: 0;
   transform: translateY(calc(var(--reveal-y) + var(--hover-y)));
-  transition: border-color var(--transition-base), transform var(--transition-base), opacity 550ms ease;
+  transition: border-color var(--transition-base), transform var(--transition-base), opacity 650ms ease;
 }
 
 .card:hover {
@@ -47,8 +47,8 @@
 }
 
 .row:global(.is-visible) .card:nth-child(1) { transition-delay: 0ms; }
-.row:global(.is-visible) .card:nth-child(2) { transition-delay: 120ms; }
-.row:global(.is-visible) .card:nth-child(3) { transition-delay: 240ms; }
+.row:global(.is-visible) .card:nth-child(2) { transition-delay: 160ms; }
+.row:global(.is-visible) .card:nth-child(3) { transition-delay: 320ms; }
 
 .featured {
   grid-row: 1 / 3;

@@ -26,27 +26,21 @@
 
 .team {
   display: flex;
-  flex-direction: column;
+  align-items: stretch;
   justify-content: center;
   gap: var(--space-md);
   height: 100%;
 }
 
 .member {
+  flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-sm);
-  border: 1px solid var(--color-ivory-200);
-  border-radius: var(--radius-md);
-  background: var(--color-white);
+  max-width: 220px;
   opacity: 0;
   transform: translateY(14px);
-  transition: box-shadow var(--transition-base), opacity 550ms ease, transform 550ms ease;
-}
-
-.member:hover {
-  box-shadow: 0 0 14px rgba(30, 91, 255, 0.25);
+  transition: opacity 650ms ease, transform 650ms ease;
 }
 
 .grid:global(.is-visible) .member {
@@ -55,38 +49,51 @@
 }
 
 .grid:global(.is-visible) .member:nth-child(1) { transition-delay: 0ms; }
-.grid:global(.is-visible) .member:nth-child(2) { transition-delay: 110ms; }
-.grid:global(.is-visible) .member:nth-child(3) { transition-delay: 220ms; }
-.grid:global(.is-visible) .member:nth-child(4) { transition-delay: 330ms; }
+.grid:global(.is-visible) .member:nth-child(2) { transition-delay: 150ms; }
+.grid:global(.is-visible) .member:nth-child(3) { transition-delay: 300ms; }
+.grid:global(.is-visible) .member:nth-child(4) { transition-delay: 450ms; }
 
-.avatar {
-  width: 46px;
-  height: 46px;
-  border-radius: var(--radius-sm);
-  background: var(--color-navy-900);
-  color: var(--color-ivory-100);
+.photoPlaceholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-md);
+  background: linear-gradient(160deg, var(--color-navy-800) 0%, var(--color-navy-900) 100%);
+  border: 1px solid var(--color-ivory-200);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 0.95rem;
-  flex-shrink: 0;
+  font-size: 2.2rem;
+  color: rgba(247, 243, 236, 0.5);
+  transition: box-shadow var(--transition-base);
+}
+
+.member:hover .photoPlaceholder {
+  box-shadow: 0 0 18px rgba(30, 91, 255, 0.3);
 }
 
 .memberName {
-  font-weight: 600;
-  font-size: 0.95rem;
+  margin-top: var(--space-sm);
+  font-weight: 700;
+  font-size: 1rem;
   color: var(--color-navy-900);
+  text-align: center;
 }
 
 .memberRole {
   font-size: 0.85rem;
   color: var(--color-graphite-600);
-  margin-top: 0.1rem;
+  margin-top: 0.15rem;
+  text-align: center;
 }
 
 @media (max-width: 860px) {
   .grid {
     grid-template-columns: 1fr;
+  }
+
+  .team {
+    max-width: 360px;
+    margin: 0 auto;
   }
 }
