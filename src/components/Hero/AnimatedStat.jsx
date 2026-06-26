@@ -4,26 +4,39 @@ function scramble(value) {
   return value.replace(/[0-9]/g, () => Math.floor(Math.random() * 10));
 }
 
-const TICK_MS = 45;
+const TOTAL_TICKS = 16;
 
-export default function AnimatedStat({ value, settleAfter = 650 }) {
+// Ease-in weighting: early gaps are tiny (fast flicker), later gaps grow
+// (visibly slowing down) right before landing on the real value.
+function buildDelays(totalDuration, totalTicks) {
+  const weights = Array.from({ length: totalTicks }, (_, i) => (i + 1) ** 2);
+  const weightSum = weights.reduce((sum, w) => sum + w, 0);
+  return weights.map((w) => (w / weightSum) * totalDuration);
+}
+
+export default function AnimatedStat({ value, settleAfter = 900 }) {
   const [display, setDisplay] = useState(() => scramble(value));
 
   useEffect(() => {
-    const totalTicks = Math.round(settleAfter / TICK_MS);
+    const delays = buildDelays(settleAfter, TOTAL_TICKS);
     let tick = 0;
+    let timeoutId;
 
-    const intervalId = setInterval(() => {
-      tick += 1;
-      if (tick >= totalTicks) {
-        clearInterval(intervalId);
-        setDisplay(value);
-        return;
-      }
-      setDisplay(scramble(value));
-    }, TICK_MS);
+    function schedule() {
+      timeoutId = setTimeout(() => {
+        tick += 1;
+        if (tick >= TOTAL_TICKS) {
+          setDisplay(value);
+          return;
+        }
+        setDisplay(scramble(value));
+        schedule();
+      }, delays[tick]);
+    }
 
-    return () => clearInterval(intervalId);
+    schedule();
+
+    return () => clearTimeout(timeoutId);
   }, [value, settleAfter]);
 
   return <dd>{display}</dd>;
