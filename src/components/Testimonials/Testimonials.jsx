@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { useReveal } from '../../hooks/useReveal';
-import SectionDivider from '../SectionDivider/SectionDivider';
 import buildingsImage from '../../assets/buildings.avif';
 import styles from './Testimonials.module.css';
 
@@ -81,7 +80,6 @@ export default function Testimonials() {
     <section id="testimonials" ref={sectionRef} className={`${styles.testimonials} section-bleed`}>
       <div ref={bgRef} className={styles.bgImage} style={{ backgroundImage: `url(${buildingsImage})` }} />
       <div className={styles.bgOverlay} />
-      <SectionDivider flip />
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
           <p className="eyebrow">In Their Words</p>

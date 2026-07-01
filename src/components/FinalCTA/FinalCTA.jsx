@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { submitContact } from '../../api/submitContact';
 import WaveBackground from '../WaveBackground/WaveBackground';
-import SectionDivider from '../SectionDivider/SectionDivider';
 import { useReveal } from '../../hooks/useReveal';
 import styles from './FinalCTA.module.css';
 
@@ -27,7 +26,6 @@ export default function FinalCTA() {
 
   return (
     <section id="contact" className={`${styles.cta} section-bleed`}>
-      <SectionDivider flip />
       <WaveBackground tone="dark" />
       <div className={`container ${styles.grid} reveal`} ref={ref}>
         <div>
@@ -79,6 +77,9 @@ export default function FinalCTA() {
           <button type="submit" className={styles.submit} disabled={status === 'submitting'}>
             {status === 'submitting' ? 'Sending…' : 'Start the Conversation'}
           </button>
+          <p className={styles.privacy}>
+            By submitting you agree to our Privacy Policy. We never share your details with third parties.
+          </p>
 
           {status === 'submitted' && (
             <p className={styles.status}>Thanks — we'll be in touch within one business day.</p>

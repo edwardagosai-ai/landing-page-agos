@@ -1,9 +1,15 @@
 .cta {
   position: relative;
-  background: radial-gradient(ellipse at 50% 50%, var(--color-navy-700) 0%, var(--color-navy-900) 50%, var(--color-navy-950) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-ivory-100) 0%,
+    var(--color-navy-900) 14%,
+    var(--color-navy-800) 50%,
+    var(--color-navy-900) 85%,
+    var(--color-navy-950) 100%
+  );
   padding: var(--space-2xl) 0;
   overflow: hidden;
-  --bleed-from: rgba(247, 243, 236, 0.16);
 }
 
 .grid {
@@ -92,6 +98,14 @@
 .submit:disabled {
   opacity: 0.7;
   cursor: default;
+}
+
+.privacy {
+  font-size: 0.75rem;
+  color: var(--color-graphite-600);
+  text-align: center;
+  margin-top: 0.5rem;
+  line-height: 1.5;
 }
 
 .status {
