@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { useReveal } from '../../hooks/useReveal';
-import AngleDivider from '../AngleDivider/AngleDivider';
 import logoMark from '../../assets/logo-mark.png';
 import {
   CRMIcon,
@@ -23,8 +22,7 @@ export default function About() {
   const ref = useReveal();
 
   return (
-    <section id="about" className={`${styles.about} section-bleed`}>
-      <AngleDivider />
+    <section id="about" className={styles.about}>
       <div className="container">
         <div ref={ref} className={`${styles.grid} reveal`}>
           <div>

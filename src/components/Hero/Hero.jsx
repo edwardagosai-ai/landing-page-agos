@@ -40,6 +40,7 @@ export default function Hero() {
           </div>
         </dl>
       </div>
+      <div className={styles.heroBridge} aria-hidden="true" />
     </section>
   );
 }

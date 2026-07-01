@@ -1,5 +1,4 @@
 import { useReveal } from '../../hooks/useReveal';
-import SectionDivider from '../SectionDivider/SectionDivider';
 import {
   WebIcon,
   AgenticIcon,
@@ -70,8 +69,7 @@ export default function Services() {
   const gridRef = useReveal({ threshold: 0.5, delay: 350 });
 
   return (
-    <section id="services" className={`${styles.services} section-bleed`}>
-      <SectionDivider flip />
+    <section id="services" className={styles.services}>
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
           <p className="eyebrow">What We Build</p>

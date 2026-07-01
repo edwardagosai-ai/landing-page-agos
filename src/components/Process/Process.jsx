@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
 import { useReveal } from '../../hooks/useReveal';
-import AngleDivider from '../AngleDivider/AngleDivider';
 import styles from './Process.module.css';
 
 const STEPS = [
@@ -45,8 +44,7 @@ export default function Process() {
   }, []);
 
   return (
-    <section id="process" className={`${styles.process} section-bleed`}>
-      <AngleDivider flip />
+    <section id="process" className={styles.process}>
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
           <p className="eyebrow">How We Work</p>

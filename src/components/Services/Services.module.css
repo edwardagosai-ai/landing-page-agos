@@ -1,7 +1,6 @@
 .services {
-  background: radial-gradient(ellipse at 50% 20%, var(--color-navy-700) 0%, var(--color-navy-900) 50%, var(--color-navy-950) 100%);
+  background: var(--color-white);
   padding: var(--space-2xl) 0;
-  --bleed-from: rgba(247, 243, 236, 0.16);
 }
 
 .head {
@@ -11,12 +10,12 @@
 .heading {
   font-size: clamp(2rem, 3.4vw, 2.7rem);
   margin-top: var(--space-sm);
-  color: var(--color-ivory-100);
+  color: var(--color-navy-900);
 }
 
 .sub {
   margin-top: var(--space-sm);
-  color: rgba(247, 243, 236, 0.65);
+  color: var(--color-graphite-700);
   font-size: 1.05rem;
 }
 
@@ -40,19 +39,20 @@
   max-width: 250px;
   min-height: 230px;
   margin: 0 auto;
-  background: linear-gradient(160deg, var(--color-navy-700) 0%, var(--color-navy-800) 45%, var(--color-navy-900) 100%);
-  border: 1px solid var(--color-navy-700);
+  background: var(--color-white);
+  border: 1px solid rgba(10, 22, 40, 0.08);
   border-radius: var(--radius-lg);
   padding: var(--space-md);
   opacity: 0;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 12px 30px rgba(2, 6, 16, 0.35);
+  box-shadow: 0 2px 16px rgba(10, 22, 40, 0.06);
   transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--reveal-y));
-  transition: border-color var(--transition-base), transform 250ms ease, opacity 700ms ease;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform 250ms ease, opacity 700ms ease;
   overflow: hidden;
 }
 
 .card:hover {
-  border-color: var(--color-blue-500);
+  border-color: var(--color-blue-400);
+  box-shadow: 0 8px 28px rgba(30, 91, 255, 0.10);
 }
 
 .grid:global(.is-visible) .card {
@@ -74,7 +74,7 @@
   background: linear-gradient(
     125deg,
     transparent 42%,
-    rgba(255, 255, 255, 0.22) 50%,
+    rgba(30, 91, 255, 0.05) 50%,
     transparent 58%
   );
   background-repeat: no-repeat;
@@ -82,7 +82,6 @@
   background-position: var(--mx) var(--my);
   opacity: var(--beam-opacity);
   transition: opacity 200ms ease;
-  mix-blend-mode: soft-light;
   pointer-events: none;
 }
 
@@ -98,15 +97,15 @@
 }
 
 .cardTitle {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--color-ivory-100);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-navy-900);
   margin-top: var(--space-md);
 }
 
 .cardCopy {
   margin-top: var(--space-sm);
-  color: rgba(247, 243, 236, 0.62);
+  color: var(--color-graphite-600);
   font-size: 0.92rem;
 }
 

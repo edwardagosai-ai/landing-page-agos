@@ -10,10 +10,32 @@
 }
 
 .nav.scrolled {
-  background: rgba(10, 22, 40, 0.92);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
   padding: 0.75rem 0;
-  box-shadow: 0 8px 30px rgba(6, 13, 26, 0.25);
+  box-shadow: 0 2px 16px rgba(10, 22, 40, 0.08);
+}
+
+.nav.scrolled .brandName {
+  color: var(--color-navy-900);
+}
+
+.nav.scrolled .link {
+  color: var(--color-graphite-700);
+}
+
+.nav.scrolled .link:hover {
+  color: var(--color-navy-900);
+}
+
+.nav.scrolled .cta {
+  color: var(--color-navy-900);
+  border-color: rgba(10, 22, 40, 0.25);
+}
+
+.nav.scrolled .cta:hover {
+  background: rgba(10, 22, 40, 0.05);
+  border-color: var(--color-navy-700);
 }
 
 .inner {
