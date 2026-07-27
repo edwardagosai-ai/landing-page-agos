@@ -1,68 +1,46 @@
 import { useReveal } from '../../hooks/useReveal';
 import {
-  WebIcon,
-  AgenticIcon,
+  CRMIcon,
+  POSIcon,
   AutomationIcon,
-  SystemsIcon,
+  PortalsIcon,
+  VoiceAIIcon,
   IntegrationsIcon,
-  SupportIcon,
 } from './icons';
 import styles from './Services.module.css';
 
 const SERVICES = [
   {
-    Icon: WebIcon,
-    title: 'Web Applications',
-    copy: 'Custom dashboards, client portals, and internal tools built to handle real workloads — not just demos.',
+    Icon: CRMIcon,
+    title: 'CRM & Client Management',
+    copy: 'Track leads, customers, and every interaction in one organized pipeline.',
   },
   {
-    Icon: AgenticIcon,
-    title: 'Agentic Software Development',
-    copy: 'We design and integrate AI agents for inbound and outbound work — instant speed-to-lead response, qualification, and FAQ handling, so no lead waits on a human.',
+    Icon: POSIcon,
+    title: 'Point of Sale (POS)',
+    copy: 'Fast, reliable checkout built around how your staff actually sell.',
   },
   {
     Icon: AutomationIcon,
-    title: 'Workflow Automations',
-    copy: 'We map your manual processes and replace the repetitive parts with automations that just run.',
+    title: 'Automation & Workflows',
+    copy: 'Turn multi-step manual processes into a single click.',
   },
   {
-    Icon: SystemsIcon,
-    title: 'Custom Internal Systems',
-    copy: 'Inventory, scheduling, CRM-style systems — purpose-built around how your team actually operates.',
+    Icon: PortalsIcon,
+    title: 'Admin & Staff Portals',
+    copy: 'Separate, purpose-built dashboards for owners and for staff.',
+  },
+  {
+    Icon: VoiceAIIcon,
+    title: 'Voice AI & Chatbots',
+    copy: 'Answer customer calls and messages automatically, day or night.',
   },
   {
     Icon: IntegrationsIcon,
-    title: 'Integrations & APIs',
-    copy: "Connect the tools you already use so data moves on its own, instead of living in someone's inbox.",
-  },
-  {
-    Icon: SupportIcon,
-    title: 'Ongoing Support',
-    copy: 'Post-launch monitoring, fixes, and iteration — we stay on as your system evolves with the business.',
+    title: 'Custom Apps & Integrations',
+    copy: 'Custom dashboards, client portals, and internal tools — connected to what you already use.',
   },
 ];
-
-const MAX_TILT_DEG = 9;
-
-function handleCardMove(event) {
-  const card = event.currentTarget;
-  const rect = card.getBoundingClientRect();
-  const px = (event.clientX - rect.left) / rect.width;
-  const py = (event.clientY - rect.top) / rect.height;
-
-  card.style.setProperty('--rx', `${(0.5 - py) * MAX_TILT_DEG}deg`);
-  card.style.setProperty('--ry', `${(px - 0.5) * MAX_TILT_DEG}deg`);
-  card.style.setProperty('--mx', `${px * 100}%`);
-  card.style.setProperty('--my', `${py * 100}%`);
-  card.style.setProperty('--beam-opacity', '1');
-}
-
-function handleCardLeave(event) {
-  const card = event.currentTarget;
-  card.style.setProperty('--rx', '0deg');
-  card.style.setProperty('--ry', '0deg');
-  card.style.setProperty('--beam-opacity', '0');
-}
 
 export default function Services() {
   const headRef = useReveal();
@@ -72,29 +50,18 @@ export default function Services() {
     <section id="services" className={styles.services}>
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
-          <p className="eyebrow">What We Build</p>
-          <h2 className={styles.heading}>One team, every piece of your system</h2>
-          <p className={styles.sub}>
-            From the first sketch to the system your team relies on daily —
-            here's where we typically come in.
-          </p>
+          <p className="eyebrow">What we build</p>
+          <h2 className={styles.heading}>One partner. Every system your business runs on.</h2>
         </div>
 
         <div ref={gridRef} className={`${styles.grid} reveal`}>
-          {SERVICES.map(({ Icon, title, copy }) => (
-            <div
-              key={title}
-              className={styles.card}
-              onMouseMove={handleCardMove}
-              onMouseLeave={handleCardLeave}
-            >
-              <div className={styles.cardInner}>
-                <div className={styles.icon}>
-                  <Icon />
-                </div>
-                <h3 className={styles.cardTitle}>{title}</h3>
-                <p className={styles.cardCopy}>{copy}</p>
+          {SERVICES.map(({ Icon, title, copy }, i) => (
+            <div key={title} className={styles.card} style={{ '--card-index': i }}>
+              <div className={styles.icon}>
+                <Icon />
               </div>
+              <h3 className={styles.cardTitle}>{title}</h3>
+              <p className={styles.cardCopy}>{copy}</p>
             </div>
           ))}
         </div>

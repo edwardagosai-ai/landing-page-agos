@@ -6,7 +6,6 @@ const LINKS = [
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
   { href: '#process', label: 'Process' },
-  { href: '#testimonials', label: 'Testimonials' },
   { href: '#faq', label: 'FAQ' },
 ];
 
@@ -15,7 +14,7 @@ export default function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 32);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -24,34 +23,39 @@ export default function Nav() {
   const closeMobile = () => setMobileOpen(false);
 
   return (
-    <nav className={`${styles.nav} ${scrolled || mobileOpen ? styles.scrolled : ''}`}>
+    <header className={`${styles.nav} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <a href="#top" className={styles.brand}>
-          <span className={styles.logoBadge}>
-            <img src={logoMark} alt="Agos Solutions" className={styles.logoMark} />
+          <img src={logoMark} alt="Agos Solutions" className={styles.logoMark} />
+          <span className={styles.brandName}>
+            <span className={styles.brandAgos}>Agos</span>
+            <span className={styles.brandSolutions}>Solutions</span>
           </span>
-          <span className={styles.brandName}>Agos Solutions</span>
         </a>
 
-        <div className={styles.links}>
+        <nav className={styles.links}>
           {LINKS.map((link) => (
             <a key={link.href} href={link.href} className={styles.link}>
               {link.label}
             </a>
           ))}
-          <a href="#contact" className={styles.cta}>
-            Start the Conversation
-          </a>
-        </div>
+        </nav>
 
-        <button
-          type="button"
-          className={styles.menuToggle}
-          aria-label="Toggle menu"
-          onClick={() => setMobileOpen((open) => !open)}
-        >
-          {mobileOpen ? '✕' : '☰'}
-        </button>
+        <div className={styles.actions}>
+          <a href="#contact" className={styles.cta}>
+            Book a Free Consultation
+          </a>
+          <button
+            type="button"
+            className={styles.menuToggle}
+            aria-label="Toggle menu"
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -61,11 +65,11 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <a href="#contact" className={styles.cta} onClick={closeMobile}>
-            Start the Conversation
+          <a href="#contact" className={styles.mobileCta} onClick={closeMobile}>
+            Book a Free Consultation
           </a>
         </div>
       )}
-    </nav>
+    </header>
   );
 }

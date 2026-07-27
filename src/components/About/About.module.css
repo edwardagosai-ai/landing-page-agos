@@ -1,148 +1,74 @@
 .about {
-  background: var(--color-ivory-100);
-  padding: var(--space-2xl) 0;
+  position: relative;
+  background: var(--color-blue-tint-50);
+  padding: 130px 0;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  gap: var(--space-xl);
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 72px;
+  align-items: start;
 }
 
 .heading {
-  font-size: clamp(2rem, 3.4vw, 2.7rem);
-  margin-top: var(--space-sm);
-  color: var(--color-navy-900);
-  max-width: 460px;
+  font-size: clamp(2.2rem, 4.6vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--color-ink-900);
+  margin: 24px 0;
 }
 
 .copy {
-  margin-top: var(--space-md);
+  font-size: 17px;
+  line-height: 1.7;
   color: var(--color-graphite-700);
-  font-size: 1.05rem;
-  max-width: 480px;
 }
 
-.diagramWrap {
+.pillars {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding-top: 30px;
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 700ms ease, transform 700ms ease;
-  transition-delay: 150ms;
 }
 
-.grid:global(.is-visible) .diagramWrap {
-  opacity: 1;
-  transform: translateY(0);
+.pillar {
+  display: flex;
+  gap: 20px;
+  padding: 26px 4px;
+  border-bottom: 1px solid #dde6fa;
 }
 
-.diagram {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  aspect-ratio: 1;
+.pillar:last-child {
+  border-bottom: none;
 }
 
-.diagramGlow {
-  position: absolute;
-  inset: -10%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(30, 91, 255, 0.16) 0%, rgba(30, 91, 255, 0.05) 45%, transparent 72%);
-  z-index: 0;
-}
-
-.diagramLines {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  z-index: 0;
-}
-
-.diagramLines line {
-  stroke: var(--color-blue-500);
-  stroke-width: 1.4;
-  opacity: 0.6;
-}
-
-.dataDot {
-  fill: var(--color-blue-400);
-}
-
-.hubNode {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: var(--color-white);
-  border: 2px solid var(--color-blue-400);
+.pillarIcon {
+  flex: none;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 18px rgba(2, 6, 16, 0.25);
-  z-index: 2;
+  color: var(--color-blue-500);
 }
 
-.hubLogo {
-  width: 38px;
-  height: 38px;
-  object-fit: contain;
+.pillarTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--color-ink-900);
+  margin-bottom: 6px;
 }
 
-.toolNode {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--color-navy-900);
-  border: 1px solid var(--color-navy-700);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--color-blue-300);
-  box-shadow: 0 6px 14px rgba(10, 22, 40, 0.18);
-  z-index: 1;
-}
-
-.toolNode svg {
-  width: 21px;
-  height: 21px;
-}
-
-.nodeLabel {
-  position: absolute;
-  transform: translate(-50%, 22px);
-  font-size: 0.68rem;
-  font-weight: 600;
-  color: var(--color-graphite-700);
-  white-space: nowrap;
-  z-index: 1;
-}
-
-.diagramCaption {
-  margin-top: var(--space-lg);
+.pillarCopy {
+  font-size: 15px;
+  line-height: 1.6;
   color: var(--color-graphite-600);
-  font-size: 0.9rem;
-  text-align: center;
-  max-width: 260px;
 }
 
 @media (max-width: 860px) {
   .grid {
     grid-template-columns: 1fr;
-  }
-
-  .diagramWrap {
-    margin-top: var(--space-lg);
+    gap: 44px;
   }
 }

@@ -1,21 +1,40 @@
-import { Fragment } from 'react';
 import { useReveal } from '../../hooks/useReveal';
-import logoMark from '../../assets/logo-mark.png';
-import {
-  CRMIcon,
-  InventoryIcon,
-  DatabaseIcon,
-  AccountingIcon,
-  SchedulingIcon,
-} from './toolIcons';
 import styles from './About.module.css';
 
-const NODES = [
-  { Icon: CRMIcon, label: 'CRM', x: 50, y: 10 },
-  { Icon: AccountingIcon, label: 'Accounting', x: 89, y: 37 },
-  { Icon: SchedulingIcon, label: 'Scheduling', x: 74, y: 85 },
-  { Icon: InventoryIcon, label: 'Inventory', x: 26, y: 85 },
-  { Icon: DatabaseIcon, label: 'Database', x: 11, y: 37 },
+const PILLARS = [
+  {
+    title: 'Unified',
+    copy: 'CRM, POS, storage, and staff tools in one place — not five different logins.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="8" height="8" rx="1.5" />
+        <rect x="13" y="3" width="8" height="8" rx="1.5" />
+        <rect x="3" y="13" width="8" height="8" rx="1.5" />
+        <rect x="13" y="13" width="8" height="8" rx="1.5" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Automated',
+    copy: 'Repetitive admin work runs quietly in the background, so your team can focus on customers.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3.5 12a8.5 8.5 0 0 1 14.5-6" />
+        <path d="M14.5 3.5h3.5V7" />
+        <path d="M20.5 12a8.5 8.5 0 0 1-14.5 6" />
+        <path d="M9.5 20.5H6V17" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Supported',
+    copy: 'We stay on as your systems partner — not a one-time developer who disappears at launch.',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" />
+      </svg>
+    ),
+  },
 ];
 
 export default function About() {
@@ -27,76 +46,23 @@ export default function About() {
         <div ref={ref} className={`${styles.grid} reveal`}>
           <div>
             <p className="eyebrow">About Agos</p>
-            <h2 className={styles.heading}>
-              We build the systems behind businesses that outgrow spreadsheets
-            </h2>
+            <h2 className={styles.heading}>We build the operating system behind your business.</h2>
             <p className={styles.copy}>
-              Agos Solutions started with a simple frustration: most small and
-              mid-sized businesses are stuck stitching together tools that
-              were never meant to talk to each other. We design and build
-              custom web apps, mobile apps, and automations that actually fit
-              how your team works — not the other way around.
-            </p>
-            <p className={styles.copy} style={{ marginTop: '1rem' }}>
-              No bloated enterprise contracts, no off-the-shelf templates
-              pretending to be custom. Just a small, senior team that ships
-              fast and sticks around after launch.
+              One connected system, built around how your business actually works — not the other
+              way around.
             </p>
           </div>
 
-          <div className={styles.diagramWrap}>
-            <div className={styles.diagram}>
-              <div className={styles.diagramGlow} />
-
-              <svg className={styles.diagramLines} viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-                {NODES.map((node) => (
-                  <line
-                    key={node.label}
-                    x1="50"
-                    y1="50"
-                    x2={node.x}
-                    y2={node.y}
-                    vectorEffect="non-scaling-stroke"
-                  />
-                ))}
-                {NODES.map((node, i) => (
-                  <circle key={`${node.label}-dot`} r="1.6" className={styles.dataDot}>
-                    <animate
-                      attributeName="cx"
-                      values={`50;${node.x};50`}
-                      dur="2.8s"
-                      begin={`${i * 0.35}s`}
-                      repeatCount="indefinite"
-                    />
-                    <animate
-                      attributeName="cy"
-                      values={`50;${node.y};50`}
-                      dur="2.8s"
-                      begin={`${i * 0.35}s`}
-                      repeatCount="indefinite"
-                    />
-                  </circle>
-                ))}
-              </svg>
-
-              <div className={styles.hubNode}>
-                <img src={logoMark} alt="" className={styles.hubLogo} />
+          <div className={styles.pillars}>
+            {PILLARS.map((pillar) => (
+              <div key={pillar.title} className={styles.pillar}>
+                <div className={styles.pillarIcon}>{pillar.icon}</div>
+                <div>
+                  <div className={styles.pillarTitle}>{pillar.title}</div>
+                  <div className={styles.pillarCopy}>{pillar.copy}</div>
+                </div>
               </div>
-
-              {NODES.map(({ Icon, label, x, y }) => (
-                <Fragment key={label}>
-                  <div className={styles.toolNode} style={{ left: `${x}%`, top: `${y}%` }}>
-                    <Icon />
-                  </div>
-                  <span className={styles.nodeLabel} style={{ left: `${x}%`, top: `${y}%` }}>
-                    {label}
-                  </span>
-                </Fragment>
-              ))}
-            </div>
-            <p className={styles.diagramCaption}>
-              One connected system, instead of five disconnected tools.
-            </p>
+            ))}
           </div>
         </div>
       </div>

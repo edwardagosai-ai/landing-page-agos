@@ -3,7 +3,6 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Services from './components/Services/Services';
 import Process from './components/Process/Process';
-import Testimonials from './components/Testimonials/Testimonials';
 import FAQ from './components/FAQ/FAQ';
 import FinalCTA from './components/FinalCTA/FinalCTA';
 import Footer from './components/Footer/Footer';
@@ -16,7 +15,6 @@ function App() {
       <About />
       <Services />
       <Process />
-      <Testimonials />
       <FAQ />
       <FinalCTA />
       <Footer />

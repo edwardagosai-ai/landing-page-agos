@@ -1,28 +1,29 @@
 .footer {
-  background: linear-gradient(180deg, var(--color-navy-800) 0%, var(--color-navy-900) 40%, var(--color-navy-950) 100%);
-  padding: var(--space-md) 0 var(--space-sm);
+  position: relative;
+  background: linear-gradient(180deg, var(--color-navy-950) 0%, var(--color-navy-900) 100%);
+  padding: 50px 0 28px;
 }
 
-.top {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-xl);
-  flex-wrap: wrap;
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid rgba(247, 243, 236, 0.1);
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 12px;
+  margin-bottom: 18px;
 }
 
 .logoBadge {
-  width: 28px;
-  height: 28px;
-  border-radius: var(--radius-sm);
-  background: var(--color-ivory-100);
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--color-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,66 +31,69 @@
 }
 
 .logoMark {
-  width: 19px;
-  height: 19px;
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
 .brandName {
   font-family: var(--font-display);
-  color: var(--color-ivory-100);
-  font-size: 0.9rem;
+  font-weight: 800;
+  font-size: 19px;
+  color: var(--color-white);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .tagline {
-  margin-top: 0.5rem;
-  color: rgba(247, 243, 236, 0.5);
-  font-size: 0.8rem;
-  max-width: 280px;
-}
-
-.cols {
-  display: flex;
-  gap: var(--space-xl);
+  margin: 0;
+  max-width: 320px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--color-footer-link);
 }
 
 .colTitle {
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: rgba(247, 243, 236, 0.45);
-  margin-bottom: var(--space-sm);
+  color: var(--color-white);
+  margin-bottom: 20px;
 }
 
 .colLinks {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 13px;
 }
 
 .colLinks a {
-  font-size: 0.84rem;
-  color: rgba(247, 243, 236, 0.78);
+  font-size: 14.5px;
+  color: var(--color-footer-link);
   transition: color var(--transition-base);
 }
 
 .colLinks a:hover {
-  color: var(--color-blue-300);
+  color: var(--color-white);
 }
 
 .bottom {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  padding-top: 28px;
   flex-wrap: wrap;
-  gap: var(--space-sm);
-  padding-top: var(--space-xs);
-  font-size: 0.74rem;
-  color: rgba(247, 243, 236, 0.4);
+  gap: 12px;
+  font-size: 13px;
+  color: #5f74a8;
 }
 
 @media (max-width: 720px) {
-  .cols {
-    gap: var(--space-lg);
-    flex-wrap: wrap;
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
   }
 }

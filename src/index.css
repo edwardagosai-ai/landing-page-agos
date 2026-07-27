@@ -1,21 +1,29 @@
 :root {
   /* Color palette */
-  --color-navy-950: #060d1a;
-  --color-navy-900: #0a1628;
+  --color-navy-950: #050d29;
+  --color-navy-900: #071233;
   --color-navy-800: #101f38;
   --color-navy-700: #182a4a;
-  --color-blue-500: #1e5bff;
+  --color-blue-600: #143fc0;
+  --color-blue-500: #1f56ea;
   --color-blue-400: #4779ff;
-  --color-blue-300: #84a3ff;
-  --color-ivory-100: #f7f3ec;
-  --color-ivory-200: #efe9dd;
+  --color-blue-300: #9fbdff;
+  --color-blue-200: #c9daff;
+  --color-blue-tint-50: #eef3ff;
+  --color-blue-tint-25: #f5f8ff;
+  --color-border-blue: #dde6fa;
+  --color-border-blue-strong: #d6e2ff;
+  --color-border-dashed: #9fb4e8;
+  --color-ink-900: #0b1226;
   --color-graphite-600: #5b6472;
-  --color-graphite-700: #3d4552;
+  --color-graphite-700: #4a5568;
+  --color-graphite-500: #8891a3;
+  --color-footer-link: #8ba0d6;
   --color-white: #ffffff;
 
   /* Typography */
-  --font-display: 'Inter', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: 'Clash Display', sans-serif;
+  --font-body: 'General Sans', sans-serif;
 
   /* Spacing scale */
   --space-xs: 0.5rem;
@@ -46,8 +54,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
-  color: var(--color-navy-900);
-  background: var(--color-ivory-100);
+  color: var(--color-ink-900);
+  background: var(--color-white);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -106,18 +114,25 @@ ul {
 }
 
 .eyebrow {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-blue-500);
+  color: var(--color-blue-600);
+  opacity: 0.7;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--color-blue-tint-50);
+  border: 1px solid var(--color-border-blue-strong);
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 950ms ease, transform 950ms ease;
+  transform: translateY(28px);
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1), transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.is-visible {

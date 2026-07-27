@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className="container">
-        <div className={styles.top}>
+        <div className={styles.grid}>
           <div>
             <div className={styles.brand}>
               <span className={styles.logoBadge}>
@@ -15,32 +15,34 @@ export default function Footer() {
               </span>
               <span className={styles.brandName}>Agos Solutions</span>
             </div>
-            <p className={styles.tagline}>Intelligent solutions. Seamless flow.</p>
+            <p className={styles.tagline}>
+              Intelligent systems. Seamless operations. We design and build the connected systems
+              small and medium businesses run on.
+            </p>
           </div>
 
-          <div className={styles.cols}>
-            <div>
-              <div className={styles.colTitle}>Site</div>
-              <div className={styles.colLinks}>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#process">Process</a>
-                <a href="#faq">FAQ</a>
-              </div>
+          <div>
+            <div className={styles.colTitle}>Site</div>
+            <div className={styles.colLinks}>
+              <a href="#about">About</a>
+              <a href="#services">Services</a>
+              <a href="#process">Process</a>
+              <a href="#faq">FAQ</a>
             </div>
-            <div>
-              <div className={styles.colTitle}>Contact</div>
-              <div className={styles.colLinks}>
-                <a href="mailto:info@agos.solutions">info@agos.solutions</a>
-                <a href="#contact">Start the Conversation</a>
-              </div>
+          </div>
+
+          <div>
+            <div className={styles.colTitle}>Contact</div>
+            <div className={styles.colLinks}>
+              <a href="mailto:hello@agossolutions.com">hello@agossolutions.com</a>
+              <a href="#contact">Book a consultation</a>
             </div>
           </div>
         </div>
 
         <div className={styles.bottom}>
           <span>© {year} Agos Solutions. All rights reserved.</span>
-          <span>Built in-house, naturally.</span>
+          <span>Systems built in-house.</span>
         </div>
       </div>
     </footer>
