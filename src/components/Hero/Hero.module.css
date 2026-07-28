@@ -4,6 +4,7 @@
   background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 62%, #eef3ff 100%);
   overflow: hidden;
   min-height: 800px;
+  scroll-margin-top: 100px;
 }
 
 .glow {

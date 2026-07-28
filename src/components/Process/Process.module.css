@@ -3,6 +3,7 @@
   background: linear-gradient(180deg, #ffffff 0%, #ffffff 78%, #eef3ff 100%);
   padding: 130px 0;
   overflow: hidden;
+  scroll-margin-top: 100px;
 }
 
 .waveEdge {
