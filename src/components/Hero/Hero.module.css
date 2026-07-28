@@ -86,10 +86,27 @@
 }
 
 .gradientText {
-  background: linear-gradient(92deg, #1f56ea, #4779ff 55%, #143fc0);
+  /* Inline SVG texture (blurred blue blobs, tiled) instead of a flat gradient or an
+     external stock photo — gives the "shimmer" real detail to reveal as it pans,
+     while staying self-contained and on-brand. Tile is 320px wide. */
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjAiIGhlaWdodD0iMTQwIj4KICA8ZGVmcz4KICAgIDxmaWx0ZXIgaWQ9ImIiIHg9Ii01MCUiIHk9Ii01MCUiIHdpZHRoPSIyMDAlIiBoZWlnaHQ9IjIwMCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxNiIvPgogICAgPC9maWx0ZXI+CiAgICA8cGF0dGVybiBpZD0icCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIxNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iIzE0M2ZjMCIvPgogICAgICA8Y2lyY2xlIGN4PSI0MCIgY3k9IjkwIiByPSI2OCIgZmlsbD0iIzFmNTZlYSIgb3BhY2l0eT0iMSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjM2MCIgY3k9IjkwIiByPSI2OCIgZmlsbD0iIzFmNTZlYSIgb3BhY2l0eT0iMSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSI5MCIgcj0iNjgiIGZpbGw9IiMxZjU2ZWEiIG9wYWNpdHk9IjEiIGZpbHRlcj0idXJsKCNiKSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIyNSIgcj0iNTgiIGZpbGw9IiMzMTU5ZDYiIG9wYWNpdHk9IjAuOSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjI2MCIgY3k9IjExNSIgcj0iNjIiIGZpbGw9IiM0Zjc0ZTgiIG9wYWNpdHk9IjAuOCIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEyNSIgcj0iNDYiIGZpbGw9IiMzZjY2ZDkiIG9wYWNpdHk9IjAuNzUiIGZpbHRlcj0idXJsKCNiKSIvPgogICAgICA8Y2lyY2xlIGN4PSIyMzAiIGN5PSIxNSIgcj0iNDIiIGZpbGw9IiM1ZjgwZWMiIG9wYWNpdHk9IjAuNSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMTQwIiBmaWxsPSJ1cmwoI3ApIi8+Cjwvc3ZnPgo=');
+  background-size: auto 140px;
+  background-repeat: repeat;
+  background-position: 0 0;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradientFlow 1.8s linear infinite;
+}
+
+@keyframes gradientFlow {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    /* exactly one tile-width (320px) shift left — the pattern tiles by construction, so the loop is seamless */
+    background-position: -320px 0;
+  }
 }
 
 .subhead {
