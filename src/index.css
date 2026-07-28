@@ -139,3 +139,21 @@ ul {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Shared hollow CTA treatment: transparent outline, lights up with a gradient fill on hover. */
+.cta-outline {
+  background: transparent;
+  color: var(--color-blue-500);
+  font-weight: 500;
+  border: 1.5px solid var(--color-blue-500);
+  transition: background 320ms ease, color 320ms ease, border-color 320ms ease,
+    box-shadow 320ms ease, transform 320ms ease;
+}
+
+.cta-outline:hover {
+  background: linear-gradient(135deg, var(--color-blue-500) 0%, var(--color-blue-400) 55%, var(--color-blue-300) 100%);
+  border-color: transparent;
+  color: var(--color-white);
+  box-shadow: 0 14px 30px -10px rgba(31, 86, 234, 0.55);
+  transform: translateY(-1px);
+}

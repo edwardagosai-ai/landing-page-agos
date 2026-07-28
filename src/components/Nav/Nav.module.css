@@ -83,18 +83,8 @@
   display: inline-flex;
   align-items: center;
   padding: 11px 22px;
-  background: var(--color-blue-500);
-  color: var(--color-white);
   font-size: 14.5px;
-  font-weight: 600;
   border-radius: var(--radius-md);
-  box-shadow: 0 8px 20px -8px rgba(31, 86, 234, 0.55);
-  transition: background var(--transition-base);
-}
-
-.cta:hover {
-  background: var(--color-blue-600);
-  color: var(--color-white);
 }
 
 .menuToggle {
@@ -155,10 +145,7 @@
     margin-top: 14px;
     text-align: center;
     padding: 14px 22px;
-    background: var(--color-blue-500);
-    color: var(--color-white);
     font-size: 15px;
-    font-weight: 700;
     border-radius: var(--radius-md);
   }
 }

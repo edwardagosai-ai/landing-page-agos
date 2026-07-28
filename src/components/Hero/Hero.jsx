@@ -49,7 +49,7 @@ export default function Hero() {
             less time on busywork.
           </p>
           <div className={styles.actions}>
-            <a href="#contact" className={styles.primaryCta}>
+            <a href="#contact" className={`${styles.primaryCta} cta-outline`}>
               Book a Free Consultation
             </a>
             <a href="#process" className={styles.secondaryCta}>

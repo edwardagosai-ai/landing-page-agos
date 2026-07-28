@@ -20,6 +20,11 @@ const STEPS = [
   },
 ];
 
+// Matches the 6s agosLineTravel loop on the connector line — each delay is
+// measured (via getPointAtLength against the animated stroke-dashoffset) so
+// the number lights up exactly when the traveling dash reaches its position.
+const LIGHT_DELAYS = ['3s', '5.25s', '0.3s', '1.55s'];
+
 export default function Process() {
   const headRef = useReveal();
   const timelineRef = useReveal();
@@ -60,7 +65,9 @@ export default function Process() {
 
           {STEPS.map((step, index) => (
             <div key={step.title} className={styles.step}>
-              <div className={styles.number}>{String(index + 1).padStart(2, '0')}</div>
+              <div className={styles.number} style={{ animationDelay: LIGHT_DELAYS[index] }}>
+                {String(index + 1).padStart(2, '0')}
+              </div>
               <h3 className={styles.stepTitle}>{step.title}</h3>
               <p className={styles.stepCopy}>{step.copy}</p>
             </div>

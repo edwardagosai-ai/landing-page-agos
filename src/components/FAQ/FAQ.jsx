@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useReveal } from '../../hooks/useReveal';
 import styles from './FAQ.module.css';
 
@@ -33,6 +33,23 @@ export default function FAQ() {
   const ref = useReveal();
   const [openIndex, setOpenIndex] = useState(-1);
   const answerRefs = useRef([]);
+  const itemRefs = useRef([]);
+  const [reservedHeight, setReservedHeight] = useState(null);
+
+  useEffect(() => {
+    function measure() {
+      // Measured while every item is collapsed, so each item's offsetHeight
+      // already includes its own border — no separate border bookkeeping needed.
+      const tallestAnswer = Math.max(...answerRefs.current.map((el) => el?.scrollHeight || 0), 0);
+      const closedTotal = itemRefs.current.reduce((sum, el) => sum + (el?.offsetHeight || 0), 0);
+      setReservedHeight(closedTotal + tallestAnswer);
+    }
+
+    measure();
+    document.fonts?.ready?.then(measure);
+    window.addEventListener('resize', measure);
+    return () => window.removeEventListener('resize', measure);
+  }, []);
 
   return (
     <section id="faq" className={styles.faq}>
@@ -47,11 +64,14 @@ export default function FAQ() {
             </p>
           </div>
 
-          <div className={styles.list}>
+          <div
+            className={styles.list}
+            style={reservedHeight != null ? { minHeight: `${reservedHeight}px` } : undefined}
+          >
             {ITEMS.map((item, index) => {
               const isOpen = openIndex === index;
               return (
-                <div key={item.q} className={styles.item}>
+                <div key={item.q} className={styles.item} ref={(el) => (itemRefs.current[index] = el)}>
                   <button
                     type="button"
                     className={styles.question}
@@ -64,7 +84,7 @@ export default function FAQ() {
                   <div
                     className={`${styles.answer} ${isOpen ? styles.open : ''}`}
                     style={{
-                      maxHeight: isOpen ? `${answerRefs.current[index]?.offsetHeight ?? 220}px` : '0px',
+                      maxHeight: isOpen ? `${answerRefs.current[index]?.scrollHeight ?? 220}px` : '0px',
                     }}
                   >
                     <p className={styles.answerInner} ref={(el) => (answerRefs.current[index] = el)}>

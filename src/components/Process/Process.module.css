@@ -103,12 +103,22 @@
   font-weight: 800;
   font-size: 19px;
   margin-bottom: 24px;
-  transition: background var(--transition-base), color var(--transition-base);
+  animation: numberLight 6s ease-in-out infinite;
 }
 
-.step:hover .number {
-  background: var(--color-blue-500);
-  color: var(--color-white);
+@keyframes numberLight {
+  0%, 46%, 54%, 100% {
+    background: var(--color-white);
+    color: var(--color-blue-500);
+    box-shadow: none;
+    transform: scale(1);
+  }
+  50% {
+    background: var(--color-blue-500);
+    color: var(--color-white);
+    box-shadow: 0 10px 24px -8px rgba(31, 86, 234, 0.6);
+    transform: scale(1.06);
+  }
 }
 
 .stepTitle {

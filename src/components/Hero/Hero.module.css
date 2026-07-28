@@ -108,18 +108,8 @@
 
 .primaryCta {
   padding: 16px 30px;
-  background: var(--color-blue-500);
-  color: var(--color-white);
   font-size: 16px;
-  font-weight: 700;
   border-radius: var(--radius-lg);
-  box-shadow: 0 14px 30px -10px rgba(31, 86, 234, 0.5);
-  transition: background var(--transition-base), transform var(--transition-base);
-}
-
-.primaryCta:hover {
-  background: var(--color-blue-600);
-  transform: translateY(-2px);
 }
 
 .secondaryCta {

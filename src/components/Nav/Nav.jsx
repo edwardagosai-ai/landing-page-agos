@@ -42,7 +42,7 @@ export default function Nav() {
         </nav>
 
         <div className={styles.actions}>
-          <a href="#contact" className={styles.cta}>
+          <a href="#contact" className={`${styles.cta} cta-outline`}>
             Book a Free Consultation
           </a>
           <button
@@ -65,7 +65,7 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
-          <a href="#contact" className={styles.mobileCta} onClick={closeMobile}>
+          <a href="#contact" className={`${styles.mobileCta} cta-outline`} onClick={closeMobile}>
             Book a Free Consultation
           </a>
         </div>
