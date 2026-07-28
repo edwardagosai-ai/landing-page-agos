@@ -20,10 +20,14 @@ const STEPS = [
   },
 ];
 
-// Matches the 6s agosLineTravel loop on the connector line — each delay is
-// measured (via getPointAtLength against the animated stroke-dashoffset) so
-// the number lights up exactly when the traveling dash reaches its position.
-const LIGHT_DELAYS = ['3s', '5.25s', '0.3s', '1.55s'];
+// One class per step, each with its own @keyframes shaped to the real
+// overlap window between the traveling dash and that number's position —
+// measured against the live stroke-dashoffset animation via getPointAtLength.
+// The line moves slowly near the ends of its path and fast through the
+// middle (single ease-in-out sweep), so steps 1 & 4 get a long, gentle pulse
+// (~1.5s) while steps 2 & 3 get a short, snappy one (~0.65s); a single
+// fixed-width pulse reused across all four was either too early or too long.
+const LIGHT_CLASSES = ['numberLight1', 'numberLight2', 'numberLight3', 'numberLight4'];
 
 export default function Process() {
   const headRef = useReveal();
@@ -65,7 +69,7 @@ export default function Process() {
 
           {STEPS.map((step, index) => (
             <div key={step.title} className={styles.step}>
-              <div className={styles.number} style={{ animationDelay: LIGHT_DELAYS[index] }}>
+              <div className={`${styles.number} ${styles[LIGHT_CLASSES[index]]}`}>
                 {String(index + 1).padStart(2, '0')}
               </div>
               <h3 className={styles.stepTitle}>{step.title}</h3>

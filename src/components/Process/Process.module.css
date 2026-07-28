@@ -103,22 +103,37 @@
   font-weight: 800;
   font-size: 19px;
   margin-bottom: 24px;
-  animation: numberLight 6s ease-in-out infinite;
 }
 
-@keyframes numberLight {
-  0%, 38%, 62%, 100% {
-    background: var(--color-white);
-    color: var(--color-blue-500);
-    box-shadow: none;
-    transform: scale(1);
-  }
-  50% {
-    background: var(--color-blue-500);
-    color: var(--color-white);
-    box-shadow: 0 10px 24px -8px rgba(31, 86, 234, 0.6);
-    transform: scale(1.06);
-  }
+/* Each pulse is shaped to when the traveling dash actually overlaps that
+   number (measured against the live line animation) — the line moves slowly
+   near the path's ends and fast through the middle, so the windows are not
+   uniform: step 1/4 pulses run long (~1.5s), step 2/3 pulses run short and
+   snappy (~0.65s). Percentages are that measured window mapped onto the
+   shared 6s loop (start% / mid% / end%). */
+.numberLight1 { animation: numberLight1 6s ease-in-out infinite; }
+.numberLight2 { animation: numberLight2 6s ease-in-out infinite; }
+.numberLight3 { animation: numberLight3 6s ease-in-out infinite; }
+.numberLight4 { animation: numberLight4 6s ease-in-out infinite; }
+
+@keyframes numberLight1 {
+  0%, 0.02%, 25.85%, 100% { background: var(--color-white); color: var(--color-blue-500); box-shadow: none; transform: scale(1); }
+  12.93% { background: var(--color-blue-500); color: var(--color-white); box-shadow: 0 10px 24px -8px rgba(31, 86, 234, 0.6); transform: scale(1.06); }
+}
+
+@keyframes numberLight2 {
+  0%, 35.52%, 46.32%, 100% { background: var(--color-white); color: var(--color-blue-500); box-shadow: none; transform: scale(1); }
+  40.92% { background: var(--color-blue-500); color: var(--color-white); box-shadow: 0 10px 24px -8px rgba(31, 86, 234, 0.6); transform: scale(1.06); }
+}
+
+@keyframes numberLight3 {
+  0%, 53.68%, 64.48%, 100% { background: var(--color-white); color: var(--color-blue-500); box-shadow: none; transform: scale(1); }
+  59.08% { background: var(--color-blue-500); color: var(--color-white); box-shadow: 0 10px 24px -8px rgba(31, 86, 234, 0.6); transform: scale(1.06); }
+}
+
+@keyframes numberLight4 {
+  0%, 74.28%, 99.98%, 100% { background: var(--color-white); color: var(--color-blue-500); box-shadow: none; transform: scale(1); }
+  87.13% { background: var(--color-blue-500); color: var(--color-white); box-shadow: 0 10px 24px -8px rgba(31, 86, 234, 0.6); transform: scale(1.06); }
 }
 
 .stepTitle {
