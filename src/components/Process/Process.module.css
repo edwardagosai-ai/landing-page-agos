@@ -107,7 +107,7 @@
 }
 
 @keyframes numberLight {
-  0%, 46%, 54%, 100% {
+  0%, 38%, 62%, 100% {
     background: var(--color-white);
     color: var(--color-blue-500);
     box-shadow: none;
