@@ -49,13 +49,39 @@ export default function Hero() {
             less time on busywork.
           </p>
           <div className={styles.actions}>
-            <a href="#contact" className={`${styles.primaryCta} cta-outline`}>
+            {/* Test: gooey blob hover-fill (solid blue) that crossfades into the
+                gradient once the blobs have merged into a full fill. */}
+            <a href="#contact" className={`${styles.primaryCta} ${styles.blobBtn}`}>
               Book a Free Consultation
+              <span className={styles.blobBtnInner}>
+                <span className={styles.blobBtnBlobs}>
+                  <span className={styles.blobBtnBlob} />
+                  <span className={styles.blobBtnBlob} />
+                  <span className={styles.blobBtnBlob} />
+                  <span className={styles.blobBtnBlob} />
+                </span>
+                <span className={styles.blobBtnGradient} />
+              </span>
             </a>
             <a href="#process" className={styles.secondaryCta}>
               See how it works ↓
             </a>
           </div>
+
+          <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
+            <defs>
+              <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5" />
+                <feColorMatrix
+                  in="blur"
+                  mode="matrix"
+                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
+                  result="goo"
+                />
+                <feBlend in2="goo" in="SourceGraphic" result="mix" />
+              </filter>
+            </defs>
+          </svg>
         </div>
 
         <div className={styles.visual}>

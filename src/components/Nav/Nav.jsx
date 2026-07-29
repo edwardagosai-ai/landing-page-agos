@@ -42,8 +42,11 @@ export default function Nav() {
         </nav>
 
         <div className={styles.actions}>
-          <a href="#contact" className={`${styles.cta} cta-outline`}>
-            Book a Free Consultation
+          {/* Test: "water" swirl fill button (rotating gooey blobs behind the
+              label, water level rises + glows on hover). */}
+          <a href="#contact" className={`${styles.cta} ${styles.waterBtn}`}>
+            <span className={styles.waterBtnText}>Book a Free Consultation</span>
+            <span className={styles.waterBtnWater} aria-hidden="true" />
           </a>
           <button
             type="button"
