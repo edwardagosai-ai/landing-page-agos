@@ -79,89 +79,6 @@
   gap: 14px;
 }
 
-.cta {
-  display: inline-flex;
-  align-items: center;
-  padding: 11px 22px;
-  font-size: 14.5px;
-  border-radius: var(--radius-md);
-}
-
-/* Test: "water" swirl button, adapted from a reference that used purple --
-   swapped for the site's blue palette. Note this button is filled at rest
-   (not hollow-outline like the rest of the site's CTAs): the .waterBtnWater
-   block is sized/positioned so it already fully covers the button before
-   any hover -- hovering just raises the water level a bit and adds a
-   glow, it's not a fill-from-empty effect. */
-.waterBtn {
-  position: relative;
-  overflow: hidden;
-  /* dark text now that the fill is a light blue, not white-on-white illegible */
-  color: var(--color-ink-900);
-  transition: box-shadow 0.2s;
-}
-
-.waterBtnText {
-  position: relative;
-  z-index: 1;
-}
-
-.waterBtnWater {
-  position: absolute;
-  top: -60px;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  background: var(--color-blue-300);
-  box-shadow: inset 0 0 50px rgba(159, 189, 255, 0.5);
-  z-index: 0;
-  transition: 0.6s;
-}
-
-.waterBtnWater::after,
-.waterBtnWater::before {
-  position: absolute;
-  content: '';
-  width: 200%;
-  height: 200%;
-  top: 0;
-  left: 0;
-  transform: translate(-25%, -75%);
-}
-
-.waterBtnWater::after {
-  border-radius: 45%;
-  background: var(--color-blue-500);
-  box-shadow: 0 0 10px 5px var(--color-blue-200), inset 0 0 5px var(--color-blue-200);
-  animation: waterSwirl 5s linear infinite;
-  opacity: 0.75;
-}
-
-.waterBtnWater::before {
-  border-radius: 40%;
-  box-shadow: 0 0 10px rgba(71, 121, 255, 0.5), inset 0 0 5px rgba(71, 121, 255, 0.5);
-  background: rgba(71, 121, 255, 0.5);
-  animation: waterSwirl 7s linear infinite;
-}
-
-@keyframes waterSwirl {
-  0% {
-    transform: translate(-25%, -75%) rotate(0);
-  }
-  100% {
-    transform: translate(-25%, -75%) rotate(360deg);
-  }
-}
-
-.waterBtn:hover .waterBtnWater {
-  top: -120px;
-}
-
-.waterBtn:hover {
-  box-shadow: 0 0 5px var(--color-blue-400), inset 0 0 5px var(--color-blue-400);
-  transition-delay: 0.8s;
-}
-
 .menuToggle {
   display: none;
   width: 42px;
@@ -188,7 +105,7 @@
     display: none;
   }
 
-  .cta {
+  .navCta {
     display: none;
   }
 

@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  padding: 168px 0 170px;
+  padding: 140px 0 132px;
   background: linear-gradient(180deg, #ffffff 0%, #f5f8ff 62%, #eef3ff 100%);
   overflow: hidden;
   min-height: 800px;
@@ -85,30 +85,6 @@
   margin: 28px 0 26px;
 }
 
-.gradientText {
-  /* Inline SVG texture (blurred blue blobs, tiled) instead of a flat gradient or an
-     external stock photo — gives the "shimmer" real detail to reveal as it pans,
-     while staying self-contained and on-brand. Tile is 320px wide. */
-  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMjAiIGhlaWdodD0iMTQwIj4KICA8ZGVmcz4KICAgIDxmaWx0ZXIgaWQ9ImIiIHg9Ii01MCUiIHk9Ii01MCUiIHdpZHRoPSIyMDAlIiBoZWlnaHQ9IjIwMCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxNiIvPgogICAgPC9maWx0ZXI+CiAgICA8cGF0dGVybiBpZD0icCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIxNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8cmVjdCB3aWR0aD0iMzIwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iIzE0M2ZjMCIvPgogICAgICA8Y2lyY2xlIGN4PSI0MCIgY3k9IjkwIiByPSI2OCIgZmlsbD0iIzFmNTZlYSIgb3BhY2l0eT0iMSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjM2MCIgY3k9IjkwIiByPSI2OCIgZmlsbD0iIzFmNTZlYSIgb3BhY2l0eT0iMSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjAiIGN5PSI5MCIgcj0iNjgiIGZpbGw9IiMxZjU2ZWEiIG9wYWNpdHk9IjEiIGZpbHRlcj0idXJsKCNiKSIvPgogICAgICA8Y2lyY2xlIGN4PSIxNTAiIGN5PSIyNSIgcj0iNTgiIGZpbGw9IiMzMTU5ZDYiIG9wYWNpdHk9IjAuOSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjI2MCIgY3k9IjExNSIgcj0iNjIiIGZpbGw9IiM0Zjc0ZTgiIG9wYWNpdHk9IjAuOCIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICAgIDxjaXJjbGUgY3g9IjEwMCIgY3k9IjEyNSIgcj0iNDYiIGZpbGw9IiMzZjY2ZDkiIG9wYWNpdHk9IjAuNzUiIGZpbHRlcj0idXJsKCNiKSIvPgogICAgICA8Y2lyY2xlIGN4PSIyMzAiIGN5PSIxNSIgcj0iNDIiIGZpbGw9IiM1ZjgwZWMiIG9wYWNpdHk9IjAuNSIgZmlsdGVyPSJ1cmwoI2IpIi8+CiAgICA8L3BhdHRlcm4+CiAgPC9kZWZzPgogIDxyZWN0IHdpZHRoPSIzMjAiIGhlaWdodD0iMTQwIiBmaWxsPSJ1cmwoI3ApIi8+Cjwvc3ZnPgo=');
-  background-size: auto 140px;
-  background-repeat: repeat;
-  background-position: 0 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: gradientFlow 1.8s linear infinite;
-}
-
-@keyframes gradientFlow {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    /* exactly one tile-width (320px) shift left — the pattern tiles by construction, so the loop is seamless */
-    background-position: -320px 0;
-  }
-}
-
 .subhead {
   max-width: 480px;
   font-size: 18px;
@@ -122,135 +98,6 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-}
-
-.primaryCta {
-  padding: 16px 30px;
-  font-size: 16px;
-  border-radius: var(--radius-lg);
-}
-
-/* Test: gooey blob hover-fill. Four blobs (solid blue) slide up and merge
-   via the SVG #goo filter, then once merged a gradient overlay crossfades
-   on top. Settled look still matches .cta-outline:hover (gradient, radius,
-   shadow, lift). */
-.blobBtn {
-  z-index: 1;
-  position: relative;
-  display: inline-block;
-  font-weight: 500;
-  text-align: center;
-  color: var(--color-blue-500);
-  background: transparent;
-  transition: color 320ms ease, box-shadow 320ms ease, transform 320ms ease;
-}
-
-.blobBtn::before {
-  content: '';
-  z-index: 1;
-  position: absolute;
-  inset: 0;
-  border: 1.5px solid var(--color-blue-500);
-  border-radius: var(--radius-lg);
-  pointer-events: none;
-  transition: border-color 320ms ease;
-}
-
-.blobBtn:hover {
-  color: var(--color-white);
-  box-shadow: 0 14px 30px -10px rgba(31, 86, 234, 0.55);
-  transform: translateY(-1px);
-}
-
-.blobBtn:hover::before {
-  border-color: transparent;
-}
-
-.blobBtnInner {
-  z-index: -1;
-  overflow: hidden;
-  /* overflow:hidden alone doesn't reliably clip the filtered (blurred) blobs'
-     soft edges in every engine -- clip-path does, so belt-and-suspenders it */
-  clip-path: inset(0 round var(--radius-lg));
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-lg);
-  background: var(--color-white);
-}
-
-/* Separate container from __inner because Firefox breaks overflow:hidden on
-   the element the goo filter is applied to. Back to the SVG url(#goo)
-   filter (not native CSS blur()+contrast()) -- CSS contrast() only touches
-   RGB, not alpha, so it can't do the alpha-threshold trick that turns
-   soft-edged overlapping circles into one crisp merged shape; without it,
-   blobs just look blurry instead of actually filling in. The SVG version's
-   blur radius is kept small (5px, down from 10px) since it's the blur
-   spread -- not the earlier scale-transform overflow -- that was bleeding
-   past the button's clipped edge and this filter type doesn't clip against
-   overflow/clip-path as reliably as native filters do. */
-.blobBtnBlobs {
-  position: relative;
-  display: block;
-  height: 100%;
-  filter: url('#goo');
-}
-
-.blobBtnBlob {
-  position: absolute;
-  /* height > 100% (intrinsic, not via transform:scale) so each blob is a tall
-     ellipse whose visible cross-section -- the middle ~54px sliced out by
-     .blobBtnInner's clip -- is close to flat top/bottom. Without this, a
-     blob exactly 100% tall is a true ellipse and its own curvature shows up
-     as gaps/scallops between merged blobs, not just at the outer edges.
-     Sized well under the amount that reintroduced the earlier bleed (that
-     was a 20%-per-side transform:scale on top of blur; this is baked into
-     the box itself with no scale, and stays within what the filter clips
-     cleanly). */
-  top: -25%;
-  width: 25%;
-  height: 150%;
-  /* solid for now -- the gradient overlay crossfades on top once merged */
-  background: var(--color-blue-500);
-  border-radius: 100%;
-  /* scaleX closes the horizontal gaps between blobs (needed for the merge) --
-     1.4 left a hairline gap at one seam, bumped up for a safer overlap margin */
-  transform: translate3d(0, 150%, 0) scaleX(1.6);
-  transition: transform 0.45s;
-}
-
-.blobBtnBlob:nth-child(1) {
-  left: 0%;
-}
-.blobBtnBlob:nth-child(2) {
-  left: 30%;
-  transition-delay: 0.08s;
-}
-.blobBtnBlob:nth-child(3) {
-  left: 60%;
-  transition-delay: 0.16s;
-}
-.blobBtnBlob:nth-child(4) {
-  left: 90%;
-  transition-delay: 0.24s;
-}
-
-.blobBtn:hover .blobBtnBlob {
-  transform: translateZ(0) scaleX(1.6);
-}
-
-.blobBtnGradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--color-blue-500) 0%, var(--color-blue-400) 55%, var(--color-blue-300) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.blobBtn:hover .blobBtnGradient {
-  opacity: 1;
-  /* starts fading in once the last (most-delayed) blob has finished rising:
-     0.45s transition + 0.24s stagger delay = ~0.69s for full merge */
-  transition-delay: 0.6s;
 }
 
 .secondaryCta {

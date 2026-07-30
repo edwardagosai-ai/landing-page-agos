@@ -1,18 +1,47 @@
+/* Solid white, not its own tint-to-white gradient -- the wave dipping down
+   from About already carries the "arriving at white" moment. Stacking a
+   second independent fade right after it just blurred one transition into
+   two, back to back. One mechanism per seam. */
 .services {
   position: relative;
-  background: linear-gradient(180deg, var(--color-blue-tint-50) 0%, #ffffff 14%);
-  padding: 130px 0;
+  background: #ffffff;
+  padding: 72px 0 104px;
+  overflow: hidden;
   scroll-margin-top: 100px;
+}
+
+/* Quiet ripple previewing Process's tint (see Process.module.css) -- Process
+   used to start pure white, exactly matching Services' own white, so there
+   was no edge here at all. Process now opens on --color-blue-tint-25 instead,
+   which gives this wave something real to trace. */
+.waveEdge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.waveEdge svg {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 90px;
+}
+
+.waveShadow {
+  filter: blur(6px);
+  opacity: 0.16;
+  transform: translateY(8px);
 }
 
 .head {
   max-width: 1100px;
   margin: 0 auto 64px;
   text-align: center;
-}
-
-.head :global(.eyebrow) {
-  margin-bottom: 18px;
 }
 
 .heading {
@@ -24,18 +53,24 @@
   margin-top: 18px;
 }
 
+/* Solid 1px hairline grid via gap + background-color showing through, instead
+   of dashed borders on every cell -- same structure, reads as considered
+   rather than blueprint-sketched, and needs no nth-child edge exceptions. */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px dashed #cdd9f2;
+  gap: 1px;
+  padding: 1px;
+  background: var(--color-border-blue);
   max-width: 1100px;
   margin: 0 auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
 }
 
 .card {
   padding: 44px 40px;
-  border-bottom: 1px dashed #cdd9f2;
-  border-right: 1px dashed #cdd9f2;
+  background: var(--color-white);
   transition: background var(--transition-base);
 }
 
@@ -43,19 +78,11 @@
   background: #eaf6ff;
 }
 
-.grid .card:nth-child(3n) {
-  border-right: none;
-}
-
-.grid .card:nth-last-child(-n + 3) {
-  border-bottom: none;
-}
-
 .icon {
   width: 44px;
   height: 44px;
-  border: 1px dashed var(--color-border-dashed);
   border-radius: var(--radius-md);
+  background: var(--color-blue-tint-50);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,36 +109,11 @@
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  .grid .card:nth-child(3n) {
-    border-right: 1px dashed #cdd9f2;
-  }
-
-  .grid .card:nth-child(2n) {
-    border-right: none;
-  }
-
-  .grid .card:nth-last-child(-n + 3) {
-    border-bottom: 1px dashed #cdd9f2;
-  }
-
-  .grid .card:nth-last-child(-n + 2) {
-    border-bottom: none;
-  }
 }
 
 @media (max-width: 620px) {
   .grid {
     grid-template-columns: 1fr;
     max-width: 600px;
-  }
-
-  .grid .card {
-    border-right: none;
-    border-bottom: 1px dashed #cdd9f2;
-  }
-
-  .grid .card:last-child {
-    border-bottom: none;
   }
 }

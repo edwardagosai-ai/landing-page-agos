@@ -9,7 +9,7 @@ const ITEMS = [
   },
   {
     q: 'What exactly do you build?',
-    a: 'CRM, POS, automation, cloud storage, admin and staff dashboards, voice AI and chatbots, and custom integrations — all connected as one system rather than separate tools.',
+    a: 'CRM, POS, automation, cloud storage, admin and staff dashboards, voice AI and chatbots, and custom integrations, all connected as one system rather than separate tools.',
   },
   {
     q: 'How long does a project take?',
@@ -17,7 +17,7 @@ const ITEMS = [
   },
   {
     q: 'Do you offer support after launch?',
-    a: "Yes. We stay on as your systems partner to refine, support, and grow the platform as your business changes — we don't disappear after handoff.",
+    a: "Yes. We stay on as your systems partner to refine, support, and grow the platform as your business changes. We don't disappear after handoff.",
   },
   {
     q: 'Will it connect to tools we already use?',
@@ -53,10 +53,23 @@ export default function FAQ() {
 
   return (
     <section id="faq" className={styles.faq}>
+      <div className={styles.waveEdge} aria-hidden="true">
+        <svg className={styles.waveShadow} viewBox="0 0 2400 200" preserveAspectRatio="none" fill="none">
+          <path
+            d="M0,101 C133,82 267,118 400,99 C533,80 667,117 800,98 C933,82 1067,115 1200,99 C1333,85 1467,111 1600,98 C1733,89 1867,108 2000,99 C2133,92 2267,105 2400,98 L2400,200 L0,200 Z"
+            fill="#143fc0"
+          />
+        </svg>
+        <svg viewBox="0 0 2400 200" preserveAspectRatio="none" fill="none">
+          <path
+            d="M0,101 C133,82 267,118 400,99 C533,80 667,117 800,98 C933,82 1067,115 1200,99 C1333,85 1467,111 1600,98 C1733,89 1867,108 2000,99 C2133,92 2267,105 2400,98 L2400,200 L0,200 Z"
+            fill="#f0f5ff"
+          />
+        </svg>
+      </div>
       <div className="container">
         <div ref={ref} className={`${styles.wrap} reveal`}>
           <div className={styles.head}>
-            <span className={styles.tag}>FAQ</span>
             <h2 className={styles.heading}>Questions, Answered.</h2>
             <p className={styles.sub}>
               Can't find what you're looking for? Reach out and we'll walk you through it on a

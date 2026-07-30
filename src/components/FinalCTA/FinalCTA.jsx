@@ -37,6 +37,20 @@ export default function FinalCTA() {
 
   return (
     <section id="contact" className={styles.cta}>
+      <div className={styles.waveEdge} aria-hidden="true">
+        <svg className={styles.waveShadow} viewBox="0 0 2400 300" preserveAspectRatio="none" fill="none">
+          <path
+            d="M0,178 C133,213 267,148 400,181 C533,215 667,146 800,180 C933,213 1067,148 1200,180 C1333,210 1467,151 1600,180 C1733,206 1867,155 2000,180 C2133,199 2267,162 2400,179 L2400,300 L0,300 Z"
+            fill="#143fc0"
+          />
+        </svg>
+        <svg viewBox="0 0 2400 300" preserveAspectRatio="none" fill="none">
+          <path
+            d="M0,178 C133,213 267,148 400,181 C533,215 667,146 800,180 C933,213 1067,148 1200,180 C1333,210 1467,151 1600,180 C1733,206 1867,155 2000,180 C2133,199 2267,162 2400,179 L2400,300 L0,300 Z"
+            fill="#050d29"
+          />
+        </svg>
+      </div>
       <div className={`container ${styles.wrap} reveal`} ref={ref}>
         <div className={styles.intro}>
           <p className="eyebrow">Get started</p>
@@ -55,7 +69,7 @@ export default function FinalCTA() {
                   <path d="M20 6L9 17l-5-5" />
                 </svg>
               </div>
-              <h3 className={styles.submittedTitle}>Thanks — request received.</h3>
+              <h3 className={styles.submittedTitle}>Thanks. Request received.</h3>
               <p className={styles.submittedCopy}>
                 We'll review your details and reach out shortly to schedule your free consultation.
               </p>
@@ -153,7 +167,7 @@ export default function FinalCTA() {
                 {step === 3 && (
                   <>
                     <h3 className={styles.stepTitle}>Anything else?</h3>
-                    <p className={styles.stepHint}>Optional — tell us what's slowing your team down.</p>
+                    <p className={styles.stepHint}>Optional: tell us what's slowing your team down.</p>
                     <textarea
                       className={styles.textarea}
                       rows={4}
@@ -166,7 +180,7 @@ export default function FinalCTA() {
                         ← Back
                       </button>
                       <button type="submit" className={styles.submitBtn} disabled={submitting}>
-                        {submitting ? 'Sending…' : 'Request Consultation'}
+                        {submitting ? 'Sending…' : 'Book a Free Consultation'}
                       </button>
                     </div>
                     <p className={styles.privacy}>

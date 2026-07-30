@@ -42,46 +42,29 @@ export default function Hero() {
           <h1 className={styles.headline}>
             Every part of your business,
             <br />
-            <span className={styles.gradientText}>running as one system.</span>
+            <span className="gradient-text">running as one system.</span>
           </h1>
           <p className={styles.subhead}>
-            CRM, POS, automation, and staff tools — connected as one system, so your team spends
-            less time on busywork.
+            CRM, POS, automation, and staff tools, all connected as one system, so your team
+            spends less time on busywork.
           </p>
           <div className={styles.actions}>
-            {/* Test: gooey blob hover-fill (solid blue) that crossfades into the
-                gradient once the blobs have merged into a full fill. */}
-            <a href="#contact" className={`${styles.primaryCta} ${styles.blobBtn}`}>
+            <a href="#contact" className="cta-blob">
               Book a Free Consultation
-              <span className={styles.blobBtnInner}>
-                <span className={styles.blobBtnBlobs}>
-                  <span className={styles.blobBtnBlob} />
-                  <span className={styles.blobBtnBlob} />
-                  <span className={styles.blobBtnBlob} />
-                  <span className={styles.blobBtnBlob} />
+              <span className="cta-blob-inner">
+                <span className="cta-blob-blobs">
+                  <span className="cta-blob-blob" />
+                  <span className="cta-blob-blob" />
+                  <span className="cta-blob-blob" />
+                  <span className="cta-blob-blob" />
                 </span>
-                <span className={styles.blobBtnGradient} />
+                <span className="cta-blob-gradient" />
               </span>
             </a>
             <a href="#process" className={styles.secondaryCta}>
               See how it works ↓
             </a>
           </div>
-
-          <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">
-            <defs>
-              <filter id="goo">
-                <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="5" />
-                <feColorMatrix
-                  in="blur"
-                  mode="matrix"
-                  values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7"
-                  result="goo"
-                />
-                <feBlend in2="goo" in="SourceGraphic" result="mix" />
-              </filter>
-            </defs>
-          </svg>
         </div>
 
         <div className={styles.visual}>

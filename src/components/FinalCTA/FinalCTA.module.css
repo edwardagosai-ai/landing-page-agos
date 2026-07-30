@@ -1,8 +1,38 @@
 .cta {
   position: relative;
-  background: linear-gradient(180deg, #ffffff 0%, #ffffff 22%, #f0f5ff 48%, #ffffff 78%);
-  padding: 50px 0 150px;
+  background: linear-gradient(180deg, #f0f5ff 0%, #ffffff 24%, #f0f5ff 48%, #ffffff 78%);
+  padding: 40px 0 120px;
+  overflow: hidden;
   scroll-margin-top: 100px;
+}
+
+/* Footer is the one real color hard-edge on the page (white to dark navy) --
+   unlike the other section seams, which already share a color and don't
+   need a divider, this one is worth tracing. Same wave-edge technique as
+   Process, colored with the footer's own navy so it reads as a preview of
+   what's coming rather than a decoration bolted on. */
+.waveEdge {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 150px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.waveEdge svg {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 170px;
+}
+
+.waveShadow {
+  filter: blur(8px);
+  opacity: 0.14;
+  transform: translateY(10px);
 }
 
 .wrap {
@@ -41,7 +71,8 @@
   box-sizing: border-box;
   text-align: left;
   background: var(--color-white);
-  border: 1px dashed var(--color-border-dashed);
+  border: 1px solid var(--color-border-blue-strong);
+  border-radius: var(--radius-lg);
   padding: 40px;
 }
 

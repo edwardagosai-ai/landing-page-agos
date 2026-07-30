@@ -4,15 +4,15 @@ import styles from './Process.module.css';
 const STEPS = [
   {
     title: 'Discover',
-    copy: 'We map how your business runs today — the tools, the workarounds, the bottlenecks.',
+    copy: 'We map how your business runs today: the tools, the workarounds, the bottlenecks.',
   },
   {
     title: 'Design',
-    copy: 'We design the system around your workflow — not a generic template.',
+    copy: 'We design the system around your workflow, not a generic template.',
   },
   {
     title: 'Build',
-    copy: 'We build and connect every piece — CRM, POS, automation, portals — as one platform.',
+    copy: 'We build and connect every piece (CRM, POS, automation, portals) as one platform.',
   },
   {
     title: 'Launch & Support',
@@ -36,9 +36,15 @@ export default function Process() {
   return (
     <section id="process" className={styles.process}>
       <div className={styles.waveEdge} aria-hidden="true">
+        <svg className={styles.waveShadow} viewBox="0 0 2400 300" preserveAspectRatio="none" fill="none">
+          <path
+            d="M0,185 C133,150 267,212 400,180 C533,148 667,214 800,178 C933,146 1067,213 1200,180 C1333,150 1467,210 1600,179 C1733,155 1867,206 2000,180 C2133,162 2267,198 2400,181 L2400,300 L0,300 Z"
+            fill="#143fc0"
+          />
+        </svg>
         <svg viewBox="0 0 2400 300" preserveAspectRatio="none" fill="none">
           <path
-            d="M0,180 C100,140 200,140 300,180 C400,220 500,220 600,180 C700,140 800,140 900,180 C1000,220 1100,220 1200,180 C1300,140 1400,140 1500,180 C1600,220 1700,220 1800,180 C1900,140 2000,140 2100,180 C2200,220 2300,220 2400,180 L2400,300 L0,300 Z"
+            d="M0,185 C133,150 267,212 400,180 C533,148 667,214 800,178 C933,146 1067,213 1200,180 C1333,150 1467,210 1600,179 C1733,155 1867,206 2000,180 C2133,162 2267,198 2400,181 L2400,300 L0,300 Z"
             fill="#eef3ff"
           />
         </svg>
@@ -46,8 +52,11 @@ export default function Process() {
 
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
-          <p className="eyebrow">How we work</p>
-          <h2 className={styles.heading}>From scattered tools to one system, in four steps.</h2>
+          <h2 className={styles.heading}>
+            From scattered tools to
+            <br />
+            <span className="gradient-text">one system</span>, in four steps.
+          </h2>
         </div>
 
         <div ref={timelineRef} className={`${styles.timeline} reveal`}>

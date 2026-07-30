@@ -42,11 +42,17 @@ export default function Nav() {
         </nav>
 
         <div className={styles.actions}>
-          {/* Test: "water" swirl fill button (rotating gooey blobs behind the
-              label, water level rises + glows on hover). */}
-          <a href="#contact" className={`${styles.cta} ${styles.waterBtn}`}>
-            <span className={styles.waterBtnText}>Book a Free Consultation</span>
-            <span className={styles.waterBtnWater} aria-hidden="true" />
+          <a href="#contact" className={`cta-blob cta-blob--sm ${styles.navCta}`}>
+            Book a Free Consultation
+            <span className="cta-blob-inner">
+              <span className="cta-blob-blobs">
+                <span className="cta-blob-blob" />
+                <span className="cta-blob-blob" />
+                <span className="cta-blob-blob" />
+                <span className="cta-blob-blob" />
+              </span>
+              <span className="cta-blob-gradient" />
+            </span>
           </a>
           <button
             type="button"
