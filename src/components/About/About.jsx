@@ -59,7 +59,7 @@ export default function About() {
       <div className="container">
         <div ref={ref} className={`${styles.wrap} reveal`}>
           <div className={styles.headBlock}>
-            <h2 className={styles.heading}>We build the operating system behind your business.</h2>
+            <h2 className={styles.heading}>We build the operating system behind your <span className="serif-italic" style={{ color: "#1f56ea" }}>business.</span></h2>
             <p className={styles.copy}>
               One connected system, built around how your business actually works, not the other
               way around.

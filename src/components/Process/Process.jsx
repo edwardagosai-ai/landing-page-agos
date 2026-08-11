@@ -55,7 +55,7 @@ export default function Process() {
           <h2 className={styles.heading}>
             From scattered tools to
             <br />
-            <span className="gradient-text">one system</span>, in four steps.
+            <span className="serif-italic" style={{ color: '#1f56ea' }}>one system</span>, in four steps.
           </h2>
         </div>
 

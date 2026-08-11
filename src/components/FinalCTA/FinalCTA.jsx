@@ -54,7 +54,7 @@ export default function FinalCTA() {
       <div className={`container ${styles.wrap} reveal`} ref={ref}>
         <div className={styles.intro}>
           <p className="eyebrow">Get started</p>
-          <h2 className={styles.heading}>Let's build your system.</h2>
+          <h2 className={styles.heading}>Let's build your <span className="serif-italic" style={{ color: "#4779ff" }}>system.</span></h2>
           <p className={styles.sub}>
             Tell us about your business and what's slowing your team down. We'll get back to you
             to schedule a free consultation.
