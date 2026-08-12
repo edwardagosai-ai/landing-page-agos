@@ -149,9 +149,14 @@ ul {
   background-size: auto 140px;
   background-repeat: repeat;
   background-position: 0 0;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  /* !important: this class is meant to always win the shimmer effect
+     regardless of what other utility class (e.g. a bold-weight helper) it's
+     combined with -- without it, cascade order between this file and a
+     component's CSS module decides the color, which is fragile and once
+     already silently lost to a solid color from a combined class. */
+  color: transparent !important;
   animation: gradientFlow 1.8s linear infinite;
 }
 
