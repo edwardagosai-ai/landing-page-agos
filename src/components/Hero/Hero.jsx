@@ -117,15 +117,15 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Tile 2: Top-Right Network Node Share Glass Card -- flies in
-                  then settles (was an infinite loop; see Hero perf notes:
-                  every simultaneously-looping blurred tile is a real,
-                  measured frame-time cost, so only the two "emphasis"
-                  tiles -- logo and monitor -- keep looping). */}
+              {/* Tile 2: Top-Right Network Node Share Glass Card */}
               <motion.div
                 initial={{ opacity: 0, y: -20, rotate: 10 }}
-                animate={{ opacity: 1, y: 0, rotate: 10 }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                animate={{ opacity: 1, y: [0, 12, 0], rotate: [10, 14, 10] }}
+                transition={{
+                  opacity: { duration: 0.8, delay: 0.2 },
+                  y: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+                  rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
+                }}
                 className={`${styles.tile} ${styles.tile2}`}
               >
                 <div className={styles.tileInner}>
@@ -139,12 +139,14 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Tile 3: Mid-Left Database Stack Floating 3D Icon -- settles
-                  after entrance, see note on Tile 2. */}
+              {/* Tile 3: Mid-Left Database Stack Floating 3D Icon */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
-                animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
-                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
+                transition={{
+                  opacity: { duration: 0.8, delay: 0.4 },
+                  y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
+                }}
                 className={`${styles.tile} ${styles.tile3}`}
               >
                 <div className={styles.tileInner}>
@@ -216,12 +218,11 @@ export default function Hero() {
                         initial="hidden"
                         animate="visible"
                         variants={wordAnimation}
-                        style={{ display: 'inline-block', marginRight: word.italic ? '0' : '0.25em' }}
+                        style={{ display: 'inline-block', marginRight: '0.25em' }}
                         className={
-                          word.bold ? styles.boldSans : 
-                          word.italic ? 'serif-italic' : ''
+                          word.bold ? styles.boldSans :
+                          word.italic ? `${styles.boldSans} gradient-text` : ''
                         }
-                        {...(word.italic ? { style: { color: '#1f56ea', fontSize: '1.08em', letterSpacing: '-0.01em', display: 'inline-block' } } : {})}
                       >
                         {word.text}
                       </motion.span>
