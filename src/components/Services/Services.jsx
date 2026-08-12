@@ -1,9 +1,7 @@
 import { useReveal } from '../../hooks/useReveal';
 import {
   CRMIcon,
-  POSIcon,
   AutomationIcon,
-  PortalsIcon,
   VoiceAIIcon,
   IntegrationsIcon,
 } from './icons';
@@ -16,19 +14,9 @@ const SERVICES = [
     copy: 'Track leads, customers, and every interaction in one organized pipeline.',
   },
   {
-    Icon: POSIcon,
-    title: 'Point of Sale (POS)',
-    copy: 'Fast, reliable checkout built around how your staff actually sell.',
-  },
-  {
     Icon: AutomationIcon,
     title: 'Automation & Workflows',
     copy: 'Turn multi-step manual processes into a single click.',
-  },
-  {
-    Icon: PortalsIcon,
-    title: 'Admin & Staff Portals',
-    copy: 'Separate, purpose-built dashboards for owners and for staff.',
   },
   {
     Icon: VoiceAIIcon,

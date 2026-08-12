@@ -58,18 +58,21 @@
    rather than blueprint-sketched, and needs no nth-child edge exceptions. */
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   padding: 1px;
   background: var(--color-border-blue);
-  max-width: 1100px;
+  max-width: 760px;
   margin: 0 auto;
   border-radius: var(--radius-lg);
   overflow: hidden;
 }
 
 .card {
-  padding: 44px 40px;
+  aspect-ratio: 1 / 1;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
   background: var(--color-white);
   transition: background var(--transition-base);
 }

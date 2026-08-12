@@ -196,6 +196,15 @@
   transform-style: preserve-3d;
   perspective: 1000px;
   max-width: 840px;
+  /* Pinned to the card's original 6-line rendered height (measured: 5 lines
+     + padding = 544px, plus one line-height of 71.744px = ~616px) so the
+     card doesn't shrink now that the headline is one line shorter. Content
+     centers vertically within that fixed space instead of leaving a gap
+     only at the bottom. */
+  min-height: 616px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(48px) saturate(220%);
   -webkit-backdrop-filter: blur(48px) saturate(220%);
@@ -283,7 +292,11 @@
   .ambientRibbons { display: none; }
   .textContent {
   transform-style: preserve-3d;
-  perspective: 1000px; padding: 40px 28px; }
+  perspective: 1000px; padding: 40px 28px;
+  /* Desktop's fixed 616px min-height matches that layout's larger font
+     size -- at mobile's much smaller clamp()'d font, the same fixed height
+     would leave a large empty gap, so mobile stays content-driven. */
+  min-height: auto; }
   .headline { font-size: clamp(1.8rem, 6.5vw, 2.6rem); }
 }
 
@@ -297,6 +310,7 @@
   perspective: 1000px;
     padding: 28px 16px;
     border-radius: 24px;
+    min-height: auto;
   }
   .headline {
     font-size: clamp(1.6rem, 7vw, 2.1rem);
