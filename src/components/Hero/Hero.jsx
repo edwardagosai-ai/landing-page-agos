@@ -12,9 +12,9 @@ export default function Hero() {
   // --- Staggered Text Animation ---
   const headlineWords = [
     { text: "we", line: 1 }, { text: "are", line: 1 }, { text: "agos.", line: 1, bold: true }, { text: "we", line: 1 }, { text: "build", line: 1, break: true },
-    { text: "smooth", line: 2 }, { text: "operations,", line: 2 }, { text: "smart", line: 2, break: true },
-    { text: "automations", line: 3 }, { text: "&", line: 3, break: true },
-    { text: "other", line: 4 }, { text: "game-changing", line: 4, italic: true, break: true },
+    { text: "smooth", line: 2 }, { text: "operations,", line: 2, break: true },
+    { text: "smart", line: 3 }, { text: "automations", line: 3 }, { text: "&", line: 3, break: true },
+    { text: "game-changing", line: 4, italic: true, break: true },
     { text: "systems", line: 5 }
   ];
 
