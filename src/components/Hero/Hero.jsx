@@ -117,16 +117,15 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Tile 2: Top-Right Network Node Share Glass Card */}
+              {/* Tile 2: Top-Right Network Node Share Glass Card -- flies in
+                  then settles (was an infinite loop; see Hero perf notes:
+                  every simultaneously-looping blurred tile is a real,
+                  measured frame-time cost, so only the two "emphasis"
+                  tiles -- logo and monitor -- keep looping). */}
               <motion.div
                 initial={{ opacity: 0, y: -20, rotate: 10 }}
-                animate={{ opacity: 1, y: [0, 12, 0], rotate: [10, 14, 10] }}
-                transition={{
-                  opacity: { duration: 0.8, delay: 0.2 },
-                  y: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
-                  rotate: { duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 0.5 },
-                }}
-                
+                animate={{ opacity: 1, y: 0, rotate: 10 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className={`${styles.tile} ${styles.tile2}`}
               >
                 <div className={styles.tileInner}>
@@ -140,15 +139,12 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Tile 3: Mid-Left Database Stack Floating 3D Icon */}
+              {/* Tile 3: Mid-Left Database Stack Floating 3D Icon -- settles
+                  after entrance, see note on Tile 2. */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
-                animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
-                transition={{
-                  opacity: { duration: 0.8, delay: 0.4 },
-                  y: { duration: 5.5, repeat: Infinity, ease: 'easeInOut', delay: 1 },
-                }}
-                
+                animate={{ opacity: 1, scale: 1, y: 0, rotate: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 className={`${styles.tile} ${styles.tile3}`}
               >
                 <div className={styles.tileInner}>
@@ -160,7 +156,8 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              {/* Tile 4: Bottom-Left Cog System Glass Card */}
+              {/* Tile 4: Bottom-Left Cog System Glass Card -- third tile kept
+                  looping (measured ~3-4fps cost vs. settled, acceptable). */}
               <motion.div
                 initial={{ opacity: 0, y: 30, rotate: -8 }}
                 animate={{ opacity: 1, y: [0, 14, 0], rotate: [-8, -4, -8] }}
@@ -169,7 +166,6 @@ export default function Hero() {
                   y: { duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 },
                   rotate: { duration: 6.5, repeat: Infinity, ease: 'easeInOut', delay: 0.2 },
                 }}
-                
                 className={`${styles.tile} ${styles.tile4}`}
               >
                 <div className={styles.tileInner}>
