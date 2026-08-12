@@ -21,21 +21,14 @@ export default function Nav() {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
 
+  /* One scroll subscription doing both jobs (hide-on-scroll-down, scrolled
+     background) instead of a second, redundant native scroll listener
+     running alongside framer-motion's own. */
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
-    if (latest > 120 && latest > previous) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
+    setHidden(latest > 120 && latest > previous);
+    setScrolled(latest > 32);
   });
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 32);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   /* Scroll-spy: track active section */
   useEffect(() => {

@@ -70,7 +70,7 @@ export default function FAQ() {
       <div className="container">
         <div ref={ref} className={`${styles.wrap} reveal`}>
           <div className={styles.head}>
-            <h2 className={styles.heading}>Questions, <span className="serif-italic" style={{ color: "#1f56ea" }}>answered.</span></h2>
+            <h2 className={styles.heading}>Questions, <span className="gradient-text">answered.</span></h2>
             <p className={styles.sub}>
               Can't find what you're looking for? Reach out and we'll walk you through it on a
               free consultation call.

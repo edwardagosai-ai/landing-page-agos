@@ -1,13 +1,10 @@
-/* Hero ends its gradient at exactly --color-blue-tint-50, and Services
-   starts its gradient at the same value -- so a flat --color-blue-tint-50
-   fill here should be a seamless match on both seams. It reads as a "hard
-   stop" anyway because a flat fill sandwiched between two moving gradients
-   still looks like a dead block, even at matching color. Bookending a very
-   gentle self-gradient (same color at both edges, a half-step lighter in
-   the middle) keeps the exact seam match while not reading as flat. */
+/* Hero's fog now ends at #eef4ff (its own hardcoded value, not the
+   --color-blue-tint-50 token), so this bookends at that same value to stay
+   a seamless continuation of the header's gradient rather than a flat fill
+   sandwiched between two moving gradients at a slightly different shade. */
 .about {
   position: relative;
-  background: linear-gradient(180deg, var(--color-blue-tint-50) 0%, #e7eefb 50%, var(--color-blue-tint-50) 100%);
+  background: linear-gradient(180deg, #eef4ff 0%, #e7eefb 50%, #eef4ff 100%);
   padding: 104px 0;
   overflow: hidden;
   scroll-margin-top: 100px;

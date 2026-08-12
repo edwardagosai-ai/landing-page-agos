@@ -19,11 +19,10 @@ export default function Hero() {
   ];
 
   const wordAnimation = {
-    hidden: { opacity: 0, y: 30, rotateX: -20 },
+    hidden: { opacity: 0, y: 30 },
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      rotateX: 0,
       transition: {
         delay: 0.1 + (i * 0.04), // staggered delay
         duration: 0.8,
@@ -69,47 +68,30 @@ export default function Hero() {
             </svg>
           </motion.div>
 
-          {/* Liquid Professional Wave boundary */}
+          {/* Soft drifting fog waves -- three layers at different opacity,
+              speed, and direction so they read as atmospheric depth rather
+              than a single moving line. Faded out at the top via a mask on
+              .waves (see Hero.module.css) so they dissolve into the hero
+              background instead of cutting off hard. */}
           <div className={styles.waves} aria-hidden="true">
             <svg className={styles.wave1} viewBox="0 0 2400 400" preserveAspectRatio="none" fill="none">
-              <defs>
-                <linearGradient id="wave1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#eef4ff" />
-                  <stop offset="100%" stopColor="#dce8ff" />
-                </linearGradient>
-              </defs>
               <path
                 d="M0,220 C100,180 200,180 300,220 C400,260 500,260 600,220 C700,180 800,180 900,220 C1000,260 1100,260 1200,220 C1300,180 1400,180 1500,220 C1600,260 1700,260 1800,220 C1900,180 2000,180 2100,220 C2200,260 2300,260 2400,220 L2400,400 L0,400 Z"
-                fill="url(#wave1Grad)"
+                fill="#e4ecff"
               />
             </svg>
             <svg className={styles.wave2} viewBox="0 0 2400 300" preserveAspectRatio="none" fill="none">
-              <defs>
-                <linearGradient id="wave2Grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#9fbdff" stopOpacity="0.4" />
-                  <stop offset="50%" stopColor="#1f56ea" stopOpacity="0.8" />
-                  <stop offset="100%" stopColor="#9fbdff" stopOpacity="0.4" />
-                </linearGradient>
-              </defs>
               <path
                 d="M0,160 C100,120 200,120 300,160 C400,200 500,200 600,160 C700,120 800,120 900,160 C1000,200 1100,200 1200,160 C1300,120 1400,120 1500,160 C1600,200 1700,200 1800,160 C1900,120 2000,120 2100,160 C2200,200 2300,200 2400,160"
-                stroke="url(#wave2Grad)"
-                strokeWidth="4"
-                style={{ filter: 'blur(1px)' }}
+                stroke="#9fbdff"
+                strokeWidth="2.5"
               />
             </svg>
             <svg className={styles.wave3} viewBox="0 0 2400 260" preserveAspectRatio="none" fill="none">
-              <defs>
-                <linearGradient id="wave3Grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#1f56ea" stopOpacity="0.6" />
-                  <stop offset="50%" stopColor="#143fc0" stopOpacity="1" />
-                  <stop offset="100%" stopColor="#1f56ea" stopOpacity="0.6" />
-                </linearGradient>
-              </defs>
               <path
                 d="M0,140 C100,100 200,100 300,140 C400,180 500,180 600,140 C700,100 800,100 900,140 C1000,180 1100,180 1200,140 C1300,100 1400,100 1500,140 C1600,180 1700,180 1800,140 C1900,100 2000,100 2100,140 C2200,180 2300,180 2400,140"
-                stroke="url(#wave3Grad)"
-                strokeWidth="3"
+                stroke="#1f56ea"
+                strokeWidth="2"
               />
             </svg>
           </div>

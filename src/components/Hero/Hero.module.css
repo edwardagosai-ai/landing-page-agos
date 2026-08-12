@@ -35,48 +35,53 @@
   right: 0;
   bottom: 0;
   height: 320px;
+  overflow: hidden;
   pointer-events: none;
   z-index: 1;
+  mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 72%, transparent 100%);
 }
 
-.wave1, .wave2, .wave3 {
+@keyframes agosWaveDrift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.wave1,
+.wave2,
+.wave3 {
   position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  transform-origin: center bottom;
+  bottom: -20px;
+  left: 0;
+  width: 200%;
+  animation: agosWaveDrift 34s linear infinite;
+  /* Pre-promote to its own compositor layer instead of the browser
+     deciding mid-animation -- these run continuously for the entire time
+     the hero is on screen. */
+  will-change: transform;
 }
 
-@keyframes waveMotion1 {
-  0% { transform: translateX(0) scaleX(1.1); }
-  50% { transform: translateX(-3%) scaleX(1.1); }
-  100% { transform: translateX(0) scaleX(1.1); }
+.wave1 {
+  height: 220px;
 }
 
-@keyframes waveMotion2 {
-  0% { transform: translateX(-2%) scaleX(1.1); }
-  50% { transform: translateX(2%) scaleX(1.1); }
-  100% { transform: translateX(-2%) scaleX(1.1); }
+.wave2 {
+  bottom: -10px;
+  height: 170px;
+  opacity: 0.55;
+  animation-duration: 24s;
+  animation-direction: reverse;
 }
 
-@keyframes waveMotion3 {
-  0% { transform: translateX(1%) scaleX(1.1); }
-  50% { transform: translateX(-2%) scaleX(1.1); }
-  100% { transform: translateX(1%) scaleX(1.1); }
-}
-
-.wave1 { 
-  opacity: 1; 
-  animation: waveMotion1 14s ease-in-out infinite;
-  mix-blend-mode: multiply;
-}
-.wave2 { 
-  opacity: 0.8; 
-  animation: waveMotion2 18s ease-in-out infinite;
-}
-.wave3 { 
-  opacity: 1; 
-  animation: waveMotion3 12s ease-in-out infinite;
+.wave3 {
+  bottom: 20px;
+  height: 140px;
+  opacity: 0.4;
+  animation-duration: 18s;
 }
 
 .tilesContainer {
@@ -110,6 +115,7 @@
   justify-content: center;
   pointer-events: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
 }
 
 .tile:hover {

@@ -65,7 +65,7 @@ export default function Services() {
       <div className="container">
         <div ref={headRef} className={`${styles.head} reveal`}>
           <h2 className={styles.heading}>
-            <span className="serif-italic" style={{ color: '#1f56ea' }}>One partner.</span> Every system your business runs on.
+            <span className="gradient-text">One partner.</span> Every system your business runs on.
           </h2>
         </div>
 
