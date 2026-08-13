@@ -1,6 +1,10 @@
 .cta {
   position: relative;
-  background: linear-gradient(180deg, #f0f5ff 0%, #ffffff 24%, #f0f5ff 48%, #ffffff 78%);
+  /* First transition (tint -> white) stays at the top as-is; the second
+     transition (white -> tint) now holds tint through to the bottom of
+     the section instead of fading back to white -- no trailing stop
+     means the last color-stop's value (tint) fills the remaining space. */
+  background: linear-gradient(180deg, #f0f5ff 0%, #ffffff 24%, #f0f5ff 48%);
   padding: 40px 0 120px;
   overflow: hidden;
   scroll-margin-top: 100px;

@@ -12,7 +12,7 @@ const STEPS = [
   },
   {
     title: 'Build',
-    copy: 'We build and connect every piece (CRM, POS, automation, portals) as one platform.',
+    copy: 'We build and connect every piece (CRM, Automation, Agentic AI etc.) as one platform.',
   },
   {
     title: 'Launch & Support',
