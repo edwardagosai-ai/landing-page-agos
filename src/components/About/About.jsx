@@ -4,7 +4,7 @@ import styles from './About.module.css';
 const PILLARS = [
   {
     title: 'Unified',
-    copy: 'CRM, POS, storage, and staff tools in one place, not five different logins.',
+    copy: 'CRM, Storage, staff tools in one place, not five different logins.',
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="8" height="8" rx="1.5" />
@@ -49,7 +49,7 @@ export default function About() {
             fill="#143fc0"
           />
         </svg>
-        <svg viewBox="0 0 2400 200" preserveAspectRatio="none" fill="none">
+        <svg className={styles.waveCrisp} viewBox="0 0 2400 200" preserveAspectRatio="none" fill="none">
           <path
             d="M0,100 C133,85 267,116 400,98 C533,82 667,118 800,96 C933,80 1067,115 1200,99 C1333,84 1467,113 1600,97 C1733,88 1867,109 2000,100 C2133,91 2267,105 2400,98 L2400,200 L0,200 Z"
             fill="#ffffff"

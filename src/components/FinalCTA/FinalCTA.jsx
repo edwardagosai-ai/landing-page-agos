@@ -3,7 +3,7 @@ import { submitContact } from '../../api/submitContact';
 import { useReveal } from '../../hooks/useReveal';
 import styles from './FinalCTA.module.css';
 
-const SYSTEM_OPTIONS = ['CRM', 'POS', 'Automation', 'Internal Management Tool', 'Voice AI / Chatbot', 'Not sure yet'];
+const SYSTEM_OPTIONS = ['CRM', 'Automation', 'Internal Management Tool', 'Voice AI / Chatbot', 'Not sure yet'];
 
 const INITIAL_FIELDS = { name: '', email: '', company: '', industry: '', message: '' };
 

@@ -19,9 +19,20 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 80px;
+  height: 110px;
   overflow: hidden;
   pointer-events: none;
+}
+
+/* Soft haze band blending the two section colors before the wave shape
+   takes over -- this is what makes the seam read as an actual fog bank
+   instead of a crisp vector cutout with a shadow pasted behind it. */
+.waveEdge::before {
+  content: '';
+  position: absolute;
+  inset: -30px 0 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0.9) 100%);
+  filter: blur(22px);
 }
 
 .waveEdge svg {
@@ -35,9 +46,15 @@
 /* Soft tinted shadow sitting behind the crisp wave -- gives the ripple a
    sense of a physical crest catching light instead of a flat cutout. */
 .waveShadow {
-  filter: blur(6px);
-  opacity: 0.16;
-  transform: translateY(8px);
+  filter: blur(16px);
+  opacity: 0.32;
+  transform: translateY(10px);
+}
+
+/* A hair of blur on the "crisp" wave itself so even its edge dissolves
+   into the haze rather than being a razor-sharp cutout. */
+.waveCrisp {
+  filter: blur(2px);
 }
 
 .wrap {

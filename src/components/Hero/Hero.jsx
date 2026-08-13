@@ -14,7 +14,7 @@ export default function Hero() {
     { text: "we", line: 1 }, { text: "are", line: 1 }, { text: "agos.", line: 1, bold: true }, { text: "we", line: 1 }, { text: "build", line: 1, break: true },
     { text: "smooth", line: 2 }, { text: "operations,", line: 2, break: true },
     { text: "smart", line: 3 }, { text: "automations", line: 3 }, { text: "&", line: 3, break: true },
-    { text: "game-changing", line: 4, italic: true, break: true },
+    { text: "flowing", line: 4, italic: true, break: true },
     { text: "systems", line: 5 }
   ];
 
