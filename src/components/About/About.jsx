@@ -68,7 +68,7 @@ export default function About() {
 
           <div className={styles.pillarsWrap}>
             <svg className={styles.pillarsLine} viewBox="0 0 900 16" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M0,8 C150,1 150,15 300,8 C450,1 450,15 600,8 C750,1 750,15 900,8" />
+              <path d="M0,8 C50,3 100,13 150,7 C200,2 250,14 300,9 C350,4 400,12 450,7 C500,3 550,13 600,8 C650,4 700,12 750,7 C800,3 850,13 900,8" />
             </svg>
             <div className={styles.pillars}>
               {PILLARS.map((pillar) => (
