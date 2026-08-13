@@ -82,8 +82,11 @@
 }
 
 .icon {
-  width: 44px;
-  height: 44px;
+  position: relative;
+  overflow: hidden;
+  align-self: center;
+  width: 72px;
+  height: 72px;
   border-radius: var(--radius-md);
   background: var(--color-blue-tint-50);
   display: flex;
@@ -91,6 +94,50 @@
   justify-content: center;
   margin-bottom: 22px;
   color: var(--color-blue-500);
+}
+
+.icon svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* Subtle shine sweep, transform-only (translateX + rotate) so it stays
+   compositor-cheap regardless of how many cards are on screen at once --
+   see the Hero tile-animation cost investigation earlier in this project
+   for why that matters. Quick sweep then a long hold, not a constant
+   back-and-forth shimmer. */
+.icon::after {
+  content: '';
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.75) 50%, transparent 65%);
+  transform: translateX(-120%) rotate(8deg);
+  animation: iconShine 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes iconShine {
+  0% {
+    transform: translateX(-120%) rotate(8deg);
+  }
+  16% {
+    transform: translateX(120%) rotate(8deg);
+  }
+  100% {
+    transform: translateX(120%) rotate(8deg);
+  }
+}
+
+.card:nth-child(2) .icon::after {
+  animation-delay: 0.6s;
+}
+
+.card:nth-child(3) .icon::after {
+  animation-delay: 1.2s;
+}
+
+.card:nth-child(4) .icon::after {
+  animation-delay: 1.8s;
 }
 
 .cardTitle {
