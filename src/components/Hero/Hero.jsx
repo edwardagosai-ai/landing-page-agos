@@ -15,7 +15,7 @@ export default function Hero() {
     { text: "smooth", line: 2 }, { text: "operations,", line: 2, break: true },
     { text: "smart", line: 3 }, { text: "automations", line: 3 }, { text: "&", line: 3, break: true },
     { text: "flowing", line: 4, italic: true },
-    { text: "systems", line: 5 }
+    { text: "systems.", line: 5 }
   ];
 
   const wordAnimation = {
