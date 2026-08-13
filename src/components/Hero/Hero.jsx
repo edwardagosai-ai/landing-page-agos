@@ -14,7 +14,7 @@ export default function Hero() {
     { text: "we", line: 1 }, { text: "are", line: 1 }, { text: "agos.", line: 1, bold: true }, { text: "we", line: 1 }, { text: "build", line: 1, break: true },
     { text: "smooth", line: 2 }, { text: "operations,", line: 2, break: true },
     { text: "smart", line: 3 }, { text: "automations", line: 3 }, { text: "&", line: 3, break: true },
-    { text: "flowing", line: 4, italic: true, break: true },
+    { text: "flowing", line: 4, italic: true },
     { text: "systems", line: 5 }
   ];
 
@@ -229,7 +229,7 @@ export default function Hero() {
                       {word.break && <br />}
                     </React.Fragment>
                   ))}
-                  
+                  <br />
                   <motion.span
                     custom={headlineWords.length}
                     initial="hidden"
@@ -263,7 +263,7 @@ export default function Hero() {
                 transition={{ duration: 1, delay: 1 }}
                 className={styles.subhead}
               >
-                but first &rarr; <a href="#about" className={styles.exploreLink}>explore our craft</a>
+                but first &rarr; <a href="#services" className={styles.exploreLink}>explore our craft</a>
               </motion.p>
             </motion.div>
           </div>
