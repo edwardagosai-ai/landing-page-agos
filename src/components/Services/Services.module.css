@@ -128,17 +128,6 @@
   }
 }
 
-.card:nth-child(2) .icon::after {
-  animation-delay: 0.6s;
-}
-
-.card:nth-child(3) .icon::after {
-  animation-delay: 1.2s;
-}
-
-.card:nth-child(4) .icon::after {
-  animation-delay: 1.8s;
-}
 
 .cardTitle {
   font-family: var(--font-display);
